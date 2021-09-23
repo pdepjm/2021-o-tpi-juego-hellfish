@@ -8,12 +8,9 @@ class lanza {
 		return "lanza.png"
 	} 
     
+    
     method position() { 
-    	//posicion = jugador.position().down(13)
     	posicion = posicion.down(1)
-    	
-    	// self.position().y()
-    	
     	return posicion
     }
 	
@@ -21,9 +18,6 @@ class lanza {
 		 posicion = unaPosicion
 	} 
 
-    method moverPara(direccion) {
-		posicion = direccion.proximaPosicion(posicion) 
-	}
 
 	method disparar(personaje) {
 		posicion = personaje.position()
