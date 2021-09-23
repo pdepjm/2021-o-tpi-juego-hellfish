@@ -1,6 +1,8 @@
-object Vida {
-	var cantidad
-	var posicion = game.at(0,0)
+import wollok.game.*
+
+object vida {
+	var property cantidad = 3
+	var posicion = game.at(7,7)
 	
   	method position() = posicion
 	
@@ -8,8 +10,6 @@ object Vida {
 		 posicion = unaPosicion
 	} 
 	
+	method image() = "vida.png"
 	
-	method image() {
-		return "vida.png"
-	} 
 }

@@ -1,12 +1,27 @@
+import direcciones.*
+import wollok.game.*
+import vida.*
+import arma.*
+
 object jugador {
 
-    var posicion = game.at(0,0) // Fijarse
-    var arma = null             //
+    var posicion = game.at(0,0) 
+    var arma = lanza            
     var vidas = vida
+    var direccion = arriba
 	
 	method image() {
-		return "pepita_" + color.nogmbre() + ".png"
+		return "jugador_" + direccion.nombre() + ".png"
 	} 
+	
+	method disparar(){
+		self.mirarParaArriba()
+		game.addVisual(lanza)
+	}
+	
+	method mirarParaArriba(){
+		direccion = arriba
+	}
 	
 	method position() = posicion
 	
@@ -14,8 +29,9 @@ object jugador {
 		 posicion = unaPosicion
 	} 
 
-    method moverPara(direccion) {
-		posicion = direccion.proximaPosicion(posicion) 
+    method moverPara(nuevaDireccion) {
+		posicion = nuevaDireccion.proximaPosicion(posicion) 
+		direccion = nuevaDireccion
 	}
 
     method obtenerVidas() = vidas
