@@ -28,8 +28,10 @@ object nivel {
 	method configurarColisiones() {
 		//game.onCollideDo(arcoiris, { algo => jugador.cambiarColor(paleta.colorPrimarioAlAzar()) manolo.deciColorPepita()})
 		
-		//game.onCollideDo(jugador.lanzas(), {e =>  e.morir()})
-		//game.whenCollideDo(jugador.lanzas(), {e =>  e.morir()})
+		if(jugador.tengoArma())
+			game.whenCollideDo(jugador.lanzas(), {e =>  e.morir()})
+			//game.onCollideDo(jugador.lanzas(), {e =>  e.morir()})
+
 	}
 	
 }

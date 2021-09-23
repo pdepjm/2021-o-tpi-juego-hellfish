@@ -41,4 +41,6 @@ object jugador {
     method obtenerVidas() = vidas
     
     method lanzas() = arma
+    
+    method tengoArma() = arma != null
 }
