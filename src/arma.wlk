@@ -1,7 +1,7 @@
 import wollok.game.*
 import jugador.*
 
-object lanza {
+class lanza {
   	var posicion = game.at(0,0) 
 	  
   	method image() {

@@ -6,7 +6,7 @@ import arma.*
 object jugador {
 
     var posicion = game.at(0,0) 
-    var arma = lanza            
+    var arma = null
     var vidas = vida
     var direccion = arriba
 	
@@ -17,6 +17,7 @@ object jugador {
 	method disparar(){
 		self.mirarParaArriba()
 		
+		arma = new lanza()
 		game.addVisual(arma)
 		arma.disparar(self)
 		//arma.moverPara(arriba) 
