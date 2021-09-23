@@ -16,8 +16,7 @@ class Enemigo {
 	method position() {
 		return posicion
 	}
-	
-	
+		
 }
 
 object bola0 {
