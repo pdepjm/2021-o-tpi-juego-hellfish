@@ -9,7 +9,11 @@ object lanza {
 	} 
     
     method position() { 
-    	posicion = jugador.position().down(13)
+    	//posicion = jugador.position().down(13)
+    	posicion = posicion.down(1)
+    	
+    	// self.position().y()
+    	
     	return posicion
     }
 	
@@ -21,5 +25,8 @@ object lanza {
 		posicion = direccion.proximaPosicion(posicion) 
 	}
 
+	method disparar(personaje) {
+		posicion = personaje.position()
+	} 
     
 }

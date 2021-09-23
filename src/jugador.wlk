@@ -16,7 +16,10 @@ object jugador {
 	
 	method disparar(){
 		self.mirarParaArriba()
-		game.addVisual(lanza)
+		
+		game.addVisual(arma)
+		arma.disparar(self)
+		//arma.moverPara(arriba) 
 	}
 	
 	method mirarParaArriba(){

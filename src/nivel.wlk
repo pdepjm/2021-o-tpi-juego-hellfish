@@ -18,7 +18,7 @@ object nivel {
 	method configurarTeclas(){
 		keyboard.left().onPressDo({ jugador.moverPara(izquierda) })	
 		keyboard.right().onPressDo({ jugador.moverPara(derecha) })
-		keyboard.up().onPressDo({ jugador.disparar() lanza.moverPara(arriba) })
+		keyboard.up().onPressDo({ jugador.disparar() })
 		
 		
 		//keyboard.r().onPressDo({ jugador.cambiarColor(paleta.colorAlAzar()) } )
