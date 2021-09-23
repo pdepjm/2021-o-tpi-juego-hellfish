@@ -2,11 +2,14 @@ import wollok.game.*
 import pepita.*
 import texto.*
 import nivel.*
+import enemigo.*
+
 
 program juego {
 	game.title("Matando a pepita wacho")
 	nivel.configuracionInicial()
 	game.addVisual(pepita)
+	game.addVisual(new Enemigo(bola=bola0))
 	game.addVisual(texto)
 	game.start()
 }
