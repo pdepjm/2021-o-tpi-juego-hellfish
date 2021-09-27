@@ -8,9 +8,9 @@ import pepita.*
 
 object nivel {
 	method configuracionInicial(){
-		game.height(10)
-		game.width(10)
-		
+		game.height(9)
+		game.width(9)
+		game.addVisual(fondoDelJuego)
 		game.addVisual(jugador)
 		game.addVisual(vida)
 		

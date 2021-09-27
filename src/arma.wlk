@@ -1,16 +1,15 @@
 import wollok.game.*
 import jugador.*
 
-class lanza {
+class Lanza {
   	var posicion = game.at(0,0) 
+  	
 	  
-  	method image() {
-		return "lanza.png"
-	} 
-    
-    
+  	method image() = "lanza.png"
+ 
+	
     method position() { 
-    	posicion = posicion.down(1)
+    	posicion = posicion.up(1)
     	return posicion
     }
 	
@@ -21,6 +20,9 @@ class lanza {
 
 	method disparar(personaje) {
 		posicion = personaje.position()
+		posicion = posicion.down(13)
 	} 
+	
+	
     
 }

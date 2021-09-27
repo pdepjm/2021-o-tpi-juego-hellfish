@@ -6,7 +6,7 @@ import enemigo.*
 
 
 program juego {
-	game.title("Matando a pepita wacho")
+	game.title("Pang")
 	nivel.configuracionInicial()
 	game.addVisual(pepita)
 	game.addVisual(new Enemigo(bola=bola0))

@@ -15,14 +15,12 @@ class Enemigo {
 	}
 	method position() {
 		return posicion
-	}
-		
+	}	
 }
 
 object bola0 {
 	method nombre() = "bola0"	
 }
-
 object bola1 {
 	method nombre() = "bola1"	
 }
@@ -35,7 +33,6 @@ object bola3 {
 object bola4 {
 	method nombre() = "bola4"	
 }
-
 object bola5 {
 	method nombre() = "bola5"	
 }
