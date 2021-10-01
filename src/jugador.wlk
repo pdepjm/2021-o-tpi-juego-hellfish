@@ -13,9 +13,8 @@ object jugador {
     var property direccion = arriba
     
     
-    method impacto(danio){
-    	
-    	vidas.reducir(danio)
+    method colisionadoPor(deltaVida){
+    	vidas.modificar(deltaVida)
     }
     
     method arma() {

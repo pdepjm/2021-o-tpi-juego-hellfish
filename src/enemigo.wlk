@@ -7,7 +7,7 @@ class Enemigo {
 		return "enemigo_bola0.png"
 	} 
 	
-	method posicion (x,y) = ( posicion = game.at(x,y))
+	method posicion (x,y) = posicion
 	
     method position() { 
     	posicion = posicion.down(0.06)
@@ -20,7 +20,7 @@ class Enemigo {
     
     method danio(){
     	game.removeVisual(self)
-    	return 1
+    	return -1
     }
 }
 

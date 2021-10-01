@@ -14,8 +14,8 @@ object vida {
 	
 	method vidas() = cantidad
 	
-	method reducir(cant) {
-		cantidad = cantidad - cant
+	method modificar(cant) {
+		cantidad = cantidad + cant
 		if(cantidad==0){
 			//FIN
 		}
