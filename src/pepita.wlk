@@ -7,7 +7,7 @@ object pepita {
 	method image() = "pepita.png"
 	
 	method morir() {
-		game.removeVisual(self)
+		//game.removeVisual(self)
 		game.say(self, "Aaaaaaaaaaa")
 	}
 

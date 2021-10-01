@@ -8,17 +8,20 @@ import arma.*
 object jugador {
 
     var posicion = game.at(0,0) 
-    var arma = null
+    var arma = lanza
     var vidas = vida
     var direccion = arriba
+    
+    method arma() {
+    	return arma 
+    }
     
 	method image() {
 		return "jugador_" + direccion.nombre() + ".png"
 	} 
 	
 	method disparar(){
-		arma = new Lanza()
-		game.addVisual(arma)
+		arma = lanza
 		arma.disparar(self)
 		//arma.moverPara(arriba) 
 		self.mirarParaArriba()
@@ -41,7 +44,5 @@ object jugador {
 
     method obtenerVidas() = vidas
     
-    method lanzas() = arma
     
-    method tengoArma() = arma != null
 }

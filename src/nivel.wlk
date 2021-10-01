@@ -13,6 +13,7 @@ object nivel {
 		game.addVisual(fondoDelJuego)
 		game.addVisual(jugador)
 		game.addVisual(vida)
+		game.addVisual(lanza)
 		
 		self.configurarTeclas()
 		self.configurarColisiones()
@@ -28,9 +29,8 @@ object nivel {
 	method configurarColisiones() {
 		//game.onCollideDo(arcoiris, { algo => jugador.cambiarColor(paleta.colorPrimarioAlAzar()) manolo.deciColorPepita()})
 		
-		if(jugador.tengoArma())
-			game.whenCollideDo(jugador.lanzas(), {e =>  e.morir()})
-			//game.onCollideDo(jugador.lanzas(), {e =>  e.morir()})
+			//game.whenCollideDo(jugador.lanzas(), {e =>  e.morir()})
+			game.onCollideDo(jugador.arma(), {e =>  e.morir()})
 
 	}
 	

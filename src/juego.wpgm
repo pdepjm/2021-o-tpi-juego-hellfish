@@ -9,7 +9,7 @@ program juego {
 	game.title("Pang")
 	nivel.configuracionInicial()
 	game.addVisual(pepita)
-	game.addVisual(new Enemigo(bola=bola0))
+	game.addVisual(new Enemigo())
 	game.addVisual(texto)
 	game.start()
 }
