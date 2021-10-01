@@ -10,7 +10,13 @@ object jugador {
     var posicion = game.at(0,0) 
     var arma = lanza
     var vidas = vida
-    var direccion = arriba
+    var property direccion = arriba
+    
+    
+    method impacto(danio){
+    	
+    	vidas.reducir(danio)
+    }
     
     method arma() {
     	return arma 

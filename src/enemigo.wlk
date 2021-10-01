@@ -10,12 +10,17 @@ class Enemigo {
 	method posicion (x,y) = ( posicion = game.at(x,y))
 	
     method position() { 
-    	posicion = posicion.down(0.05)
+    	posicion = posicion.down(0.06)
     	return posicion
     }
     
     method impacto(){
     	game.removeVisual(self)
+    }
+    
+    method danio(){
+    	game.removeVisual(self)
+    	return 1
     }
 }
 
