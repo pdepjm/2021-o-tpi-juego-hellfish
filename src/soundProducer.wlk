@@ -12,16 +12,13 @@ object soundProducer {
 	
 	method provider(_provider){
 		provider = _provider
-	}
-	
+	}	
 	method sound(audioFile) = provider.sound(audioFile)
-	
 }
 
 object soundProviderMock {
 	
 	method sound(audioFile) = soundMock
-	
 }
 
 object soundMock {

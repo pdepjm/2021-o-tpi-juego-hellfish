@@ -19,6 +19,5 @@ object vida {
 		if(cantidad==0){
 			//FIN
 		}
-	} 
-	
+	} 	
 }

@@ -12,7 +12,6 @@ object jugador {
     var vidas = vida
     var property direccion = arriba
     
-    
     method colisionadoPor(deltaVida){
     	vidas.modificar(deltaVida)
     }
@@ -48,6 +47,5 @@ object jugador {
 	}
 
     method obtenerVidas() = vidas
-    
-    
+     
 }

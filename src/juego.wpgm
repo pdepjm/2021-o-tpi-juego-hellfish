@@ -4,7 +4,6 @@ import texto.*
 import nivel.*
 import enemigo.*
 
-
 program juego {
 	game.title("Pang")
 	nivel.configuracionInicial()

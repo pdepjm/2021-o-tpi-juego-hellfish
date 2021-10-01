@@ -19,7 +19,6 @@ object texto {
 	method text() = "Vida:" + (vida.vidas()).toString()
 	
 	method textColor() = paleta.verde()
-	
 }
 
 object paleta {

@@ -9,20 +9,14 @@ import pepita.*
 test "jugador se mueve hacia la derecha"{
 	jugador.moverPara(derecha)
 	assert.equals(game.at(1,0), jugador.position())
-	
-	
 }
 
 test "jugador se mueve hacia la izquierda"{
 	jugador.moverPara(izquierda)
 	assert.equals(game.at(-1,0), jugador.position())
-	
-	
 }
 
 test "Jugador mira para arriba"{
 	jugador.mirarParaArriba()
 	assert.equals(arriba, jugador.direccion())
-	}
-	
-	
+}

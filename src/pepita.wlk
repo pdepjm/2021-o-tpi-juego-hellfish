@@ -10,7 +10,6 @@ object pepita {
 		//game.removeVisual(self)
 		game.say(self, "Aaaaaaaaaaa")
 	}
-
 }
 
 object fondoDelJuego {

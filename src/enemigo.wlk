@@ -2,7 +2,6 @@ import wollok.game.*
 class Enemigo {
 	var posicion = game.at(3, 15)
 	
-	
 	method image() {
 		return "enemigo_bola0.png"
 	} 
