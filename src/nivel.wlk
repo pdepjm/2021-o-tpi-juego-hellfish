@@ -4,16 +4,25 @@ import vida.*
 import jugador.*
 import arma.*
 import pepita.*
+import enemigo.*
 
 
 object nivel {
 	method configuracionInicial(){
-		game.height(9)
+		game.height(12)
 		game.width(9)
 		game.addVisual(fondoDelJuego)
 		game.addVisual(jugador)
 		game.addVisual(vida)
 		game.addVisual(lanza)
+		var bola1= new Enemigo(posicion = game.at(6, 20))
+		var bola2= new Enemigo(posicion = game.at(2, 30))
+		var bola3= new Enemigo(posicion = game.at(3, 40))
+		var bola4= new Enemigo(posicion = game.at(5, 50))
+		game.addVisual(bola1)
+		game.addVisual(bola2)
+		game.addVisual(bola3)
+		game.addVisual(bola4)
 		
 		self.configurarTeclas()
 		self.configurarColisiones()
@@ -27,10 +36,8 @@ object nivel {
 	
 	
 	method configurarColisiones() {
-		//game.onCollideDo(arcoiris, { algo => jugador.cambiarColor(paleta.colorPrimarioAlAzar()) manolo.deciColorPepita()})
 		
-			//game.whenCollideDo(jugador.lanzas(), {e =>  e.morir()})
-			game.onCollideDo(jugador.arma(), {e =>  e.morir()})
+			game.onCollideDo(jugador.arma(), {e =>  e.impacto()})
 
 	}
 	

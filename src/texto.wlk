@@ -14,7 +14,7 @@ import vida.*
 
 object texto {
 	
-	method position() = game.at(7, 8)
+	method position() = game.at(7, 11)
 	
 	method text() = "Vida:" + (vida.vidas()).toString()
 	

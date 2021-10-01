@@ -1,6 +1,6 @@
 import wollok.game.*
 class Enemigo {
-	var posicion = game.at(3, 10)
+	var posicion = game.at(3, 15)
 	
 	
 	method image() {
@@ -10,8 +10,12 @@ class Enemigo {
 	method posicion (x,y) = ( posicion = game.at(x,y))
 	
     method position() { 
-    	posicion = posicion.down(0.1)
+    	posicion = posicion.down(0.05)
     	return posicion
+    }
+    
+    method impacto(){
+    	game.removeVisual(self)
     }
 }
 
