@@ -1,4 +1,5 @@
 import wollok.game.*
+import nivel.*
 
 object vida {
 	var property cantidad = 3
@@ -17,7 +18,7 @@ object vida {
 	method modificar(cant) {
 		cantidad = cantidad + cant
 		if(cantidad==0){
-			//FIN
+			nivel.gameOver()
 		}
 	} 	
 }

@@ -7,7 +7,7 @@ import pepita.*
 import enemigo.*
 import item.*
 
-/*class Visual {
+class Visual {
 	var property image
 	var property position = game.origin()
 }
@@ -19,10 +19,10 @@ object fondoDelJuego inherits Visual(
 	method colisionadoPor(visual){}
 }
 const gameOver = new Visual(
-	image = "muerte2.png", 
-	position = game.at(1,1)
+	image = "gameover.png", 
+	position = game.at(0,5)
 )
-*/
+
 object nivel {
 	
 	method configuracionInicial(){
@@ -57,11 +57,11 @@ object nivel {
 	    game.onCollideDo(jugador, {e =>  jugador.colisionadoPor(e.danio())})			
      }	    
 
-	/*method gameOver(){
+	method gameOver(){
 		game.clear()
 		game.title("Perdiste")
         game.addVisual(gameOver)
 		
-	}*/
+	}
 }
 	
