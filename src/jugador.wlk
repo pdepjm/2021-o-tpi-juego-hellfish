@@ -37,5 +37,10 @@ object jugador {
 	}
 
     method obtenerVidas() = vidas
-     
+    method incrementarVida() {
+    	vidas.modificar(1)
+    }
+    
+    method impacto() {}
+    
 }
