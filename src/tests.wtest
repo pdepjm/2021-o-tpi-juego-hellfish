@@ -5,6 +5,8 @@ import vida.*
 import jugador.*
 import arma.*
 import pepita.*
+import enemigo.*
+
 
 describe "Test Jugador" {	
 test "Jugador se mueve"{
@@ -23,8 +25,8 @@ test "Cuando un jugador es colicionado por un objeto pierde uno de vida"{
 }
 }
 
-describe "Test Vida" {
-	
+
+describe "Test Vida" {	
 test "Se aumenta la cantidad de Vida"{	
 	vida.modificar(1)
 	assert.equals(4,vida.cantidad())
@@ -39,5 +41,19 @@ test "Cuando la vida es 0 se termina el juego"{
 	// ...
 	assert.that(true)
 }
-
 }
+
+
+describe "Test Enemigo"{
+var enemigo = new Enemigo()
+
+test "Un enemigo que hace danio"{
+	assert.equals(-1, enemigo.danio())
+}
+
+test "Un enemigo que impacta"{	
+	//assert.equals(desaparece, ejercito.impacta())
+	assert.that(true)
+}	
+}
+
