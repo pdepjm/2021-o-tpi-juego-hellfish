@@ -6,8 +6,7 @@ import jugador.*
 import arma.*
 import pepita.*
 
-describe "Test Jugador" {
-	
+describe "Test Jugador" {	
 test "Jugador se mueve"{
 	jugador.moverPara(derecha)
 	assert.equals(game.at(1,0), jugador.position())
@@ -22,6 +21,23 @@ test "Cuando un jugador es colicionado por un objeto pierde uno de vida"{
 	jugador.colisionadoPor(-1)
 	assert.equals(2, jugador.obtenerVidas().cantidad())
 }
+}
+
+describe "Test Vida" {
 	
-	
+test "Se aumenta la cantidad de Vida"{	
+	vida.modificar(1)
+	assert.equals(4,vida.cantidad())
+}
+
+test "Se disminuye la cantidad de Vida"{	
+	vida.modificar(-1)
+	assert.equals(2,vida.cantidad())
+}
+
+test "Cuando la vida es 0 se termina el juego"{	
+	// ...
+	assert.that(true)
+}
+
 }
