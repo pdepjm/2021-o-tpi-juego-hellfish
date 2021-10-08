@@ -1,12 +1,13 @@
 import wollok.game.*
+import Objeto.*
+
+/*
 class Enemigo {
 	var posicion = game.at(3, 15)
 	
 	method image() {
-		return "enemigo_bola0.png"
+		return "enemigo_bola1.png"
 	} 
-	
-	method posicion (x,y) = posicion
 	
     method position() { 
     	posicion = posicion.down(0.06)
@@ -14,10 +15,24 @@ class Enemigo {
     }
     
     method impacto(){
+    	game.say(self, "Aaaaaaaaaaa")
     	game.removeVisual(self)
     }
     
     method danio(){
+    	game.removeVisual(self)
+    	return -1
+    }
+}
+*/
+
+class Enemigo inherits Objeto {
+	
+	method image() {
+		return "enemigo_bola1.png"
+	} 
+    
+    override method danio(){
     	game.removeVisual(self)
     	return -1
     }
