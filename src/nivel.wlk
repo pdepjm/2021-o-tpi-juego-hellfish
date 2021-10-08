@@ -14,11 +14,12 @@ class Visual {
 }
 
 object fondoDelJuego inherits Visual(
-	image = "Fondo_del_Mar.PNG",
-	position = new Position(x=1,y=1)
+	image = "page_background.png",
+	position = new Position(x=0,y=0)
 ){
 	method colisionadoPor(visual){}
 }
+
 const gameOver = new Visual(
 	image = "gameover.png", 
 	position = game.at(0,5)
@@ -27,25 +28,29 @@ const gameOver = new Visual(
 object nivel {
 	
 	method configuracionInicial(){
+		// Tamanio frame
 		game.height(12)
 		game.width(9)
-		//game.addVisual(fondoDelJuego)
+		
+		// Fondo
+		game.addVisual(fondoDelJuego)
+		
+		// Personaje
 		game.addVisual(jugador)
+		game.addVisual(texto)
 		game.addVisual(vida)
 		game.addVisual(lanza)
-		var bola1= new Enemigo(posicion = game.at(6, 20))
-		var bola2= new Enemigo(posicion = game.at(2, 25))
-		var bola3= new Enemigo(posicion = game.at(3, 30))
-		var bola4= new Enemigo(posicion = game.at(5, 35))
-		//var item= new Item(posicion = game.at(5, 15))
-		game.addVisual(bola1)
-		game.addVisual(bola2)
-		game.addVisual(bola3)
-		game.addVisual(bola4)
 		
-		game.addVisual(texto)
+		// Enemigos
+		game.addVisual(new Enemigo(posicion = game.at(6, 20)))
+		game.addVisual(new Enemigo(posicion = game.at(2, 25)))
+		game.addVisual(new Enemigo(posicion = game.at(3, 30)))
+		game.addVisual(new Enemigo(posicion = game.at(5, 35)))
 				
+		//	Comandos	
 		self.configurarTeclas()
+		
+		// Colicion
 		self.configurarColisiones()
 	}
 	
