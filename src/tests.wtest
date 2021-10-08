@@ -6,17 +6,22 @@ import jugador.*
 import arma.*
 import pepita.*
 
-test "jugador se mueve hacia la derecha"{
+describe "Test Jugador" {
+	
+test "Jugador se mueve"{
 	jugador.moverPara(derecha)
 	assert.equals(game.at(1,0), jugador.position())
 }
 
-test "jugador se mueve hacia la izquierda"{
-	jugador.moverPara(izquierda)
-	assert.equals(game.at(-1,0), jugador.position())
-}
-
-test "Jugador mira para arriba"{
-	jugador.mirarParaArriba()
+test "Cuando un jugador dispara mira asi arriba"{
+	jugador.disparar()
 	assert.equals(arriba, jugador.direccion())
+}
+	
+test "Cuando un jugador es colicionado por un objeto pierde uno de vida"{
+	jugador.colisionadoPor(-1)
+	assert.equals(2, jugador.obtenerVidas().cantidad())
+}
+	
+	
 }
