@@ -6,6 +6,7 @@ import arma.*
 import pepita.*
 import enemigo.*
 import item.*
+import texto.*
 
 class Visual {
 	var property image
@@ -41,6 +42,8 @@ object nivel {
 		game.addVisual(bola2)
 		game.addVisual(bola3)
 		game.addVisual(bola4)
+		
+		game.addVisual(texto)
 				
 		self.configurarTeclas()
 		self.configurarColisiones()

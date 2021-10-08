@@ -1,14 +1,8 @@
 import wollok.game.*
-import pepita.*
-import texto.*
 import nivel.*
-import enemigo.*
 
 program juego {
 	game.title("Pang")
 	nivel.configuracionInicial()
-	game.addVisual(pepita)
-	//game.addVisual(new Enemigo())
-	game.addVisual(texto)
 	game.start()
 }
