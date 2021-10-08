@@ -13,6 +13,7 @@ class Visual {
 	var property position = game.origin()
 }
 
+/*
 object fondoDelJuego inherits Visual(
 	image = "page_background.png",
 	position = new Position(x=0,y=0)
@@ -20,6 +21,7 @@ object fondoDelJuego inherits Visual(
 	method colisionadoPor(visual){}
 	method danio() = 0
 }
+*/
 
 const gameOver = new Visual(
 	image = "gameover_v2.0.png", 
@@ -35,6 +37,7 @@ object nivel {
 		
 		// Fondo
 		//game.addVisual(fondoDelJuego)
+		game.boardGround("page_background.png")
 		
 		// Personaje
 		game.addVisual(jugador)
@@ -45,8 +48,8 @@ object nivel {
 		// Enemigos
 		game.addVisual(new Enemigo(posicion = game.at(6, 20)))
 		game.addVisual(new Enemigo(posicion = game.at(2, 25)))
-		//game.addVisual(new Enemigo(posicion = game.at(3, 30)))
-		//game.addVisual(new Enemigo(posicion = game.at(5, 35)))
+		game.addVisual(new Enemigo(posicion = game.at(3, 30)))
+		game.addVisual(new Enemigo(posicion = game.at(5, 35)))
 		
 		// Item Vida
 		game.addVisual(new ItemVida(posicion = game.at(3, 15)))
