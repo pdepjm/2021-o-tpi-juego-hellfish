@@ -5,7 +5,7 @@ import jugador.*
 import arma.*
 import pepita.*
 import enemigo.*
-import item.*
+import itemVida.*
 import texto.*
 
 class Visual {
@@ -22,8 +22,8 @@ object fondoDelJuego inherits Visual(
 }
 
 const gameOver = new Visual(
-	image = "gameover.png", 
-	position = game.at(0,5)
+	image = "gameover_v2.0.png", 
+	position = game.at(0,0)
 )
 
 object nivel {
@@ -34,7 +34,7 @@ object nivel {
 		game.width(9)
 		
 		// Fondo
-		game.addVisual(fondoDelJuego)
+		//game.addVisual(fondoDelJuego)
 		
 		// Personaje
 		game.addVisual(jugador)
@@ -45,14 +45,19 @@ object nivel {
 		// Enemigos
 		game.addVisual(new Enemigo(posicion = game.at(6, 20)))
 		game.addVisual(new Enemigo(posicion = game.at(2, 25)))
-		game.addVisual(new Enemigo(posicion = game.at(3, 30)))
-		game.addVisual(new Enemigo(posicion = game.at(5, 35)))
+		//game.addVisual(new Enemigo(posicion = game.at(3, 30)))
+		//game.addVisual(new Enemigo(posicion = game.at(5, 35)))
+		
+		// Item Vida
+		game.addVisual(new ItemVida(posicion = game.at(3, 15)))
 				
 		//	Comandos	
 		self.configurarTeclas()
 		
 		// Colicion
 		self.configurarColisiones()
+		
+		//game.addVisual(pepita)
 	}
 	
 	method configurarTeclas(){
@@ -62,8 +67,8 @@ object nivel {
 	}
 		
 	method configurarColisiones() {		
-	    game.onCollideDo(jugador.arma(), {e => e.impacto()})
-	    game.onCollideDo(jugador, {e =>  jugador.colisionadoPor(e.danio())})			
+	    game.whenCollideDo(jugador.arma(), {e => e.impacto()})
+	    game.whenCollideDo(jugador, {e =>  jugador.colisionadoPor(e.danio())})			
      }	    
 
 	method gameOver(){
