@@ -5,11 +5,11 @@ class Objeto {
 	
     method position() { 
     	posicion = posicion.down(0.06)
+    	//posicion = posicion.down(1)
     	return posicion
     }
     
     method impacto(){
-    	game.say(self, "Aaaaaaaaaaa")
     	game.removeVisual(self)
     }
     
