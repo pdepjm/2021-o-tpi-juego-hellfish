@@ -18,6 +18,7 @@ object fondoDelJuego inherits Visual(
 	position = new Position(x=0,y=0)
 ){
 	method colisionadoPor(visual){}
+	method danio() = 0
 }
 
 const gameOver = new Visual(
@@ -61,15 +62,14 @@ object nivel {
 	}
 		
 	method configurarColisiones() {		
-	    game.onCollideDo(jugador.arma(), {e =>  e.impacto()})
+	    game.onCollideDo(jugador.arma(), {e => e.impacto()})
 	    game.onCollideDo(jugador, {e =>  jugador.colisionadoPor(e.danio())})			
      }	    
 
 	method gameOver(){
 		game.clear()
 		game.title("Perdiste")
-        game.addVisual(gameOver)
-		
+        game.addVisual(gameOver)		
 	}
 }
 	
