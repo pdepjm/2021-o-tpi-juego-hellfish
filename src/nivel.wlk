@@ -24,7 +24,7 @@ object fondoDelJuego inherits Visual(
 */
 
 const gameOver = new Visual(
-	image = "gameover_v2.0.png", 
+	image = "gameOverFoto4.png", 
 	position = game.at(0,0)
 )
 
