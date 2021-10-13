@@ -1,10 +1,13 @@
-# Nombre del juego (<- borrar y completar)
+# SuperPang!
 
 ## Equipo de desarrollo
 
-- Alguien
-- Persona
-- etc.
+- GUERREÑO LOPEZ, JUAN GERMAN
+- IWASSJUK OURENS, JUAN MARTIN
+- BENITO, ARIEL EMILIO
+- LISCHINSKY, ELIAS NICOLAS
+- RAMOS, JULIETA
+- REY ALVAREZ, JUAN CRUZ
 
 ## Capturas
 
@@ -12,7 +15,7 @@
 
 ## Reglas de Juego / Instrucciones
 
-(Escribirlas)
+Matar las bolas que van cayendo del cielo, si te pegan perdes una vida.
 
 ## Respuestas teóricas
 
