@@ -1,8 +1,9 @@
 import wollok.game.*
 import jugador.*
+import score.*
 
 object lanza { 
-  	var property position = game.at(-5,0)
+  	var property position = game.at(-3,0)
   	var movimiento = false
   	const velocidad = 1 
   		  
@@ -11,7 +12,7 @@ object lanza {
 	method disparar(personaje) {
 		movimiento = true
 		position = personaje.position()
-		position = position.down(13)
+		position = position.down(2)
 	}
 
     method desplazar() {
@@ -19,7 +20,7 @@ object lanza {
     		position = position.up(velocidad)
     	}
     	else{
-    		position = game.at(-5,0) 
+    		position = game.at(-3,0) 
     	}
     }
     
@@ -34,11 +35,12 @@ object lanza {
     	if(unObjeto.equals(jugador).negate()){
      		unObjeto.impacto()
      		self.impacto()	
+     		puntos.modificar(1000)
      	}
      } 
      
 	method impacto() {
-     	position = game.at(-5,0)
+     	position = game.at(-3,0)
      	movimiento = false
      }
 }

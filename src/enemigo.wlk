@@ -1,6 +1,7 @@
 import wollok.game.*
 import Objeto.*
 
+
 /*
 class Enemigo {
 	var posicion = game.at(3, 15)
@@ -34,6 +35,7 @@ class Enemigo inherits Objeto {
     
     override method danio(){
     	game.removeVisual(self)
+    	
     	return -1
     }
 }

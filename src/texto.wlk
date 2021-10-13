@@ -1,5 +1,6 @@
 import wollok.game.*
 import vida.*
+import score.*
 
 // ¡Los visuales también pueden ser texto!
 // Hay que definir la posición en la que debe aparecer
@@ -18,10 +19,19 @@ object texto {
 	
 	method text() = "Vida:" + (vida.vidas()).toString()
 	
-	method textColor() = paleta.verde()
+	method textColor() = paleta.rojo()
 }
 
 object paleta {
 	method verde() = "00FF00FF"
 	method rojo() = "FF0000FF"
+}
+
+object texto2 {
+	
+	method position() = game.at(1, 11)
+	
+	method text() = "Score:" + (puntos.puntos()).toString()
+	
+	method textColor() = paleta.verde()
 }

@@ -1,6 +1,7 @@
 import direcciones.*
 import wollok.game.*
 import vida.*
+import score.*
 import arma.*
 
 
@@ -14,6 +15,7 @@ object jugador {
     
     method colisionadoPor(deltaVida) {
     	vidas.modificar(deltaVida)
+    	puntos.modificar(deltaVida*100)
     } 
     
 	method image() = "jugador_" + direccion.nombre() + ".png"
@@ -35,6 +37,7 @@ object jugador {
 	}
 
     method obtenerVidas() = vidas
+    
     method incrementarVida() {
     	vidas.modificar(1)
     }

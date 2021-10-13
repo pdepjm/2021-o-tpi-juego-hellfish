@@ -24,9 +24,15 @@ object fondoDelJuego inherits Visual(
 */
 
 const gameOver = new Visual(
-	image = "gameover_v2.0.png", 
+	image = "gameOverFoto4.png", 
 	position = game.at(0,0)
 )
+
+const youWin = new Visual(
+	image = "you-win.png", 
+	position = game.at(0,0)
+)
+
 
 object nivel {
 	
@@ -42,6 +48,7 @@ object nivel {
 		// Personaje
 		game.addVisual(jugador)
 		game.addVisual(texto)
+		game.addVisual(texto2)
 		game.addVisual(vida)
 		//game.addVisual(lanza)
 		lanza.addArma()
@@ -80,6 +87,12 @@ object nivel {
 		game.clear()
 		game.title("Perdiste")
         game.addVisual(gameOver)		
+	}
+	
+	method ganaste(){
+		game.clear()
+		game.title("Ganaste")
+        game.addVisual(youWin)		
 	}
 }
 	
