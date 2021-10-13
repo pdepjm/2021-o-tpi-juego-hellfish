@@ -71,7 +71,8 @@ object nivel {
 	}
 		
 	method configurarColisiones() {		
-	    game.whenCollideDo(jugador.arma(), {e => e.impacto()})
+	    //game.whenCollideDo(jugador.arma(), {e => e.impacto()})
+	    game.whenCollideDo(jugador.arma(), {e => jugador.arma().impactar(e)})
 	    game.whenCollideDo(jugador, {e =>  jugador.colisionadoPor(e.danio())})			
      }	    
 
