@@ -39,5 +39,17 @@ object lanza {
     
     method danio() {
     	return 0
+     }
+     
+     method impactar(unObjeto) {
+     	if(unObjeto.equals(jugador).negate()){
+     		unObjeto.impacto()
+     		self.impacto()	
+     	}
      } 
+     
+     method impacto() {
+     	position = game.at(-5,0)
+     	movimiento = false
+     }
 }
