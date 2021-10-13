@@ -24,7 +24,7 @@ object lanza {
     }
     
     method addArma() {
-    	game.onTick(500, "desplazar", { => self.desplazar()})
+    	game.onTick(300, "desplazar", { => self.desplazar()})
     	game.addVisual(self)
     }
     
