@@ -6,7 +6,7 @@ import arma.*
 
 object jugador {
 
-    var posicion = game.at(0,0) 
+    var property position = game.at(0,0) 
     const arma = lanza
     const vidas = vida
     var property direccion = arriba
@@ -28,11 +28,9 @@ object jugador {
 	method mirarParaArriba(){
 		direccion = arriba
 	}
-	
-	method position() = posicion
 
     method moverPara(nuevaDireccion) {
-		posicion = nuevaDireccion.proximaPosicion(posicion) 
+		position = nuevaDireccion.proximaPosicion(position) 
 		direccion = nuevaDireccion
 	}
 

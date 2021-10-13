@@ -1,22 +1,13 @@
 import wollok.game.*
 import jugador.*
 
-object lanza {
-  	//var posicion = game.at(-1,0) 
-  	var property position = game.at(-1,0)
+object lanza { 
+  	var property position = game.at(-5,0)
   	var movimiento = false
   	const velocidad = 1 
   		  
   	method image() = "lanza.png"
  	
- 	/*
-    method position() { 
-    	if (movimiento) {
-    	   posicion = posicion.up(1)
-    	}
-    	return posicion    	
-    }
-    */
 	method disparar(personaje) {
 		movimiento = true
 		position = personaje.position()
@@ -37,18 +28,16 @@ object lanza {
     	game.addVisual(self)
     }
     
-    method danio() {
-    	return 0
-     }
-     
-     method impactar(unObjeto) {
-     	if(unObjeto.equals(jugador).negate()){
+    method danio() = 0
+    
+    method impactar(unObjeto) {
+    	if(unObjeto.equals(jugador).negate()){
      		unObjeto.impacto()
      		self.impacto()	
      	}
      } 
      
-     method impacto() {
+	method impacto() {
      	position = game.at(-5,0)
      	movimiento = false
      }
