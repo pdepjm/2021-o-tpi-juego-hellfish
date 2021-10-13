@@ -64,7 +64,7 @@ describe "Test Lanza"{
 
 test "Al disparar el arma se posiciciona debajo del jugador"{
 	lanza.disparar(jugador)
-	assert.equals(lanza.position(), jugador.position().down(13))
+	assert.equals(lanza.position(), jugador.position().down(2))
 }
 
 test "El arma se desplaza si esta en movimiento"{
