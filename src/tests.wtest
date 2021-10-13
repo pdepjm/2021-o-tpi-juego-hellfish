@@ -59,3 +59,42 @@ test "Un enemigo que impacta"{
 }	
 }
 
+
+describe "Test Lanza"{
+
+test "Al disparar el arma se posiciciona debajo del jugador"{
+	lanza.disparar(jugador)
+	assert.equals(lanza.position(), jugador.position().down(13))
+}
+
+test "El arma se desplaza si esta en movimiento"{
+	
+	lanza.disparar(jugador)
+	const posicionActual = lanza.position().up(1)
+	lanza.desplazar() 
+	
+	assert.equals(posicionActual, lanza.position())
+}
+
+test "El arma no se desplaza si no esta en movimiento"{	
+	const posicionActual = lanza.position()
+	lanza.desplazar() 
+	assert.equals(posicionActual, lanza.position())
+}	
+
+test "Si el arma impacta un objote lo elimina" {
+	const enemigo = new Enemigo(posicion = game.at(6, 20))
+	game.addVisual(enemigo)
+	
+	lanza.impactar(enemigo)
+	assert.notThat(game.hasVisual(enemigo))
+}
+
+test "Si el arma impacta al personaje no lo elimina" {
+	game.addVisual(jugador)
+	lanza.impactar(jugador)
+	assert.that(game.hasVisual(jugador))
+}
+ 
+}
+
