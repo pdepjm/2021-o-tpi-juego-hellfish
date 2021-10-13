@@ -43,7 +43,8 @@ object nivel {
 		game.addVisual(jugador)
 		game.addVisual(texto)
 		game.addVisual(vida)
-		game.addVisual(lanza)
+		//game.addVisual(lanza)
+		lanza.addArma()
 		
 		// Enemigos
 		game.addVisual(new Enemigo(posicion = game.at(6, 20)))
@@ -52,7 +53,7 @@ object nivel {
 		game.addVisual(new Enemigo(posicion = game.at(5, 35)))
 		
 		// Item Vida
-		game.addVisual(new ItemVida(posicion = game.at(3, 15)))
+		//game.addVisual(new ItemVida(posicion = game.at(3, 15)))
 				
 		//	Comandos	
 		self.configurarTeclas()
