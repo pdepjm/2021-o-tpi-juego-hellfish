@@ -11,10 +11,18 @@ object derecha {
 object arriba {
 	method proximaPosicion(posicionActual) = posicionActual.up(1) 
 	method nombre () = "up"
+	
+	method desplazar(posicionActual, desplazamietno) = posicionActual.up(desplazamietno)
 }
 
 object abajo {
 	method proximaPosicion(posicionActual) = posicionActual.down(1) 
 	method nombre () = "down"
+	
+	method desplazar(posicionActual, desplazamietno) = posicionActual.down(desplazamietno)
+    
 }
-
+    
+    //method desplazarAsiAbajo() {
+    	//position = position.down(velocidad)
+    //}
