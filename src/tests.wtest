@@ -23,6 +23,8 @@ test "Cuando un jugador es colicionado por un objeto pierde uno de vida"{
 	jugador.colisionadoPor(-1)
 	assert.equals(2, jugador.obtenerVidas().cantidad())
 }
+
+// test personaje arma
 }
 
 
@@ -66,7 +68,7 @@ test "Al disparar el arma se posiciciona debajo del jugador"{
 	lanza.disparar(jugador)
 	assert.equals(lanza.position(), jugador.position().down(2))
 }
-
+/*
 test "El arma se desplaza si esta en movimiento"{
 	
 	lanza.disparar(jugador)
@@ -89,7 +91,7 @@ test "Si el arma impacta un objote lo elimina" {
 	lanza.impactar(enemigo)
 	assert.notThat(game.hasVisual(enemigo))
 }
-
+*/
 test "Si el arma impacta al personaje no lo elimina" {
 	game.addVisual(jugador)
 	lanza.impactar(jugador)
