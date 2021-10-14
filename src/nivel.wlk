@@ -50,16 +50,11 @@ object nivel {
 		game.addVisual(texto)
 		game.addVisual(texto2)
 		game.addVisual(vida)
-		//game.addVisual(lanza)
 		lanza.addArma()
 		
 		
 		// Enemigos
 		// timer para enemigos
-		//game.addVisual(new Enemigo(posicion = game.at(6, 20)))
-		//game.addVisual(new Enemigo(posicion = game.at(2, 25)))
-		//game.addVisual(new Enemigo(posicion = game.at(3, 30)))
-		//game.addVisual(new Enemigo(posicion = game.at(5, 35)))
 		const enemigo1 = new Enemigo(position = game.at(6, 20),desplazamiento = abajo)
 		const enemigo2 = new Enemigo(position = game.at(2, 25),desplazamiento = abajo)
 		const enemigo3 = new Enemigo(position = game.at(3, 30),desplazamiento = abajo)
@@ -91,9 +86,8 @@ object nivel {
 	}
 		
 	method configurarColisiones() {		
-	    //game.whenCollideDo(jugador.arma(), {e => e.impacto()})
 	    game.whenCollideDo(jugador.arma(), {e => jugador.arma().impactar(e)})
-	    game.whenCollideDo(jugador, {e =>  jugador.colisionadoPor(e.danio())})			
+	    game.whenCollideDo(jugador, {e =>  jugador.colisionadoPor(e)})			
      }	    
 
 	method gameOver(){
