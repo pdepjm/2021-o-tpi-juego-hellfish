@@ -5,11 +5,11 @@ import ObjetoMovil.*
 
 
 // hacer desaparecer el objeto
-object lanza inherits ObjetoMovil { 
-  	//var property position = game.at(-3,0)
+object lanza {
   	// Dos wko para los estados
-  	//const velocidad = 1 
   	var movimiento = false
+  	var property position = game.at(-3,0)
+  	const velocidad = 1
   		  
   	method image() = "lanza.png"
  	
@@ -28,19 +28,11 @@ object lanza inherits ObjetoMovil {
     		position = game.at(-3,0) 
     	}
     }
-    
-    /*
+
     method addArma() {
     	game.onTick(300, "desplazar", { => self.desplazar()})
     	game.addVisual(self)
     }
-    */
-    method addArma() {
-    	game.onTick(300, "desplazar", { => self.desplazar()})
-    	game.addVisual(self)
-    }
-    
-    //method danio() = 0
     
     method impactar(unObjeto) {
     	// sacar el if
@@ -56,4 +48,7 @@ object lanza inherits ObjetoMovil {
      	position = game.at(-3,0)
      	movimiento = false
      }
+     
+     method danio() = 0
+     
 }
