@@ -42,6 +42,10 @@ object jugador {
     	vidas.modificar(1)
     }
     
+    method modificarVida(deltaVida) {
+    	vidas.modificar(deltaVida)
+    }
+    
     method impacto() {}
     
 }
