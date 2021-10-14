@@ -1,11 +1,15 @@
 import wollok.game.*
 import jugador.*
 import score.*
+import ObjetoMovil.*
 
-object lanza { 
-  	var property position = game.at(-3,0)
+
+// hacer desaparecer el objeto
+object lanza inherits ObjetoMovil { 
+  	//var property position = game.at(-3,0)
+  	// Dos wko para los estados
+  	//const velocidad = 1 
   	var movimiento = false
-  	const velocidad = 1 
   		  
   	method image() = "lanza.png"
  	
@@ -15,6 +19,7 @@ object lanza {
 		position = position.down(2)
 	}
 
+	 
     method desplazar() {
     	if (movimiento) {
     		position = position.up(velocidad)
@@ -24,16 +29,24 @@ object lanza {
     	}
     }
     
+    /*
+    method addArma() {
+    	game.onTick(300, "desplazar", { => self.desplazar()})
+    	game.addVisual(self)
+    }
+    */
     method addArma() {
     	game.onTick(300, "desplazar", { => self.desplazar()})
     	game.addVisual(self)
     }
     
-    method danio() = 0
+    //method danio() = 0
     
     method impactar(unObjeto) {
+    	// sacar el if
     	if(unObjeto.equals(jugador).negate()){
-     		unObjeto.impacto()
+     		//unObjeto.impacto()
+     		unObjeto.efecto()
      		self.impacto()	
      		puntos.modificar(1000)
      	}
