@@ -17,16 +17,7 @@ class ObjetoMovil {
     
     method danio() = 0
      
-    //method desplazarAsiArriba() {
-    	//position = position.up(velocidad)
-    //}
-    
-    //method desplazarAsiAbajo() {
-    	//position = position.down(velocidad)
-    //}
-    
     method addObjetoMovil() {
-    	//game.onTick(300, "desplazar", { => self.desplazarAsiArriba()})
     	game.onTick(300, "desplazar", { => position = desplazamiento.desplazar(position, velocidad)})
     	game.addVisual(self)
     }
