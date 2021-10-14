@@ -53,15 +53,28 @@ object nivel {
 		//game.addVisual(lanza)
 		lanza.addArma()
 		
+		
 		// Enemigos
-		game.addVisual(new Enemigo(posicion = game.at(6, 20)))
-		game.addVisual(new Enemigo(posicion = game.at(2, 25)))
-		game.addVisual(new Enemigo(posicion = game.at(3, 30)))
-		game.addVisual(new Enemigo(posicion = game.at(5, 35)))
+		// timer para enemigos
+		//game.addVisual(new Enemigo(posicion = game.at(6, 20)))
+		//game.addVisual(new Enemigo(posicion = game.at(2, 25)))
+		//game.addVisual(new Enemigo(posicion = game.at(3, 30)))
+		//game.addVisual(new Enemigo(posicion = game.at(5, 35)))
+		const enemigo1 = new Enemigo(position = game.at(6, 20),desplazamiento = abajo)
+		const enemigo2 = new Enemigo(position = game.at(2, 25),desplazamiento = abajo)
+		const enemigo3 = new Enemigo(position = game.at(3, 30),desplazamiento = abajo)
+		const enemigo4 = new Enemigo(position = game.at(5, 35),desplazamiento = abajo)
 		
 		// Item Vida
 		//game.addVisual(new ItemVida(posicion = game.at(3, 15)))
+		const vidaExtra = new ItemVida(position = game.at(3, 15))
 				
+		enemigo1.addObjetoMovil()
+		enemigo2.addObjetoMovil()
+		enemigo3.addObjetoMovil()
+		enemigo4.addObjetoMovil()
+		vidaExtra.addObjetoMovil()
+		
 		//	Comandos	
 		self.configurarTeclas()
 		
