@@ -38,7 +38,8 @@ object lanza {
     	// sacar el if
     	if(unObjeto.equals(jugador).negate()){
      		//unObjeto.impacto()
-     		unObjeto.efecto()
+     		//unObjeto.efecto()
+     		unObjeto.impactadoPor(self)
      		self.impacto()	
      		puntos.modificar(1000)
      	}
@@ -50,5 +51,7 @@ object lanza {
      }
      
      method danio() = 0
+     
+     method efecto() {}
      
 }

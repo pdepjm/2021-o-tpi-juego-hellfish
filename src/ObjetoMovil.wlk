@@ -11,7 +11,7 @@ class ObjetoMovil {
     	game.removeVisual(self)
     }
     
-   	method colisionadoPor(personaje){
+   	method impactadoPor(unObjeto){
     	game.removeVisual(self)
     }
     

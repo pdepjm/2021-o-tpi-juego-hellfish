@@ -10,7 +10,6 @@ class Enemigo inherits ObjetoMovil {
     
     method efecto() {
     	game.removeVisual(self)
-    	//jugador.modificarVida(self.danio())
     }
 }
 
