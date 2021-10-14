@@ -1,42 +1,16 @@
 import wollok.game.*
-import Objeto.*
+import ObjetoMovil.*
+import jugador.*
 
-
-/*
-class Enemigo {
-	var posicion = game.at(3, 15)
+class Enemigo inherits ObjetoMovil {
 	
-	method image() {
-		return "enemigo_bola1.png"
-	} 
-	
-    method position() { 
-    	posicion = posicion.down(0.06)
-    	return posicion
-    }
+	method image() = "enemigo_bola1.png"
     
-    method impacto(){
-    	game.say(self, "Aaaaaaaaaaa")
-    	game.removeVisual(self)
-    }
+    override method danio() = -1
     
-    method danio(){
+    method efecto() {
     	game.removeVisual(self)
-    	return -1
-    }
-}
-*/
-
-class Enemigo inherits Objeto {
-	
-	method image() {
-		return "enemigo_bola1.png"
-	} 
-    
-    override method danio(){
-    	game.removeVisual(self)
-    	
-    	return -1
+    	jugador.modificarVida(self.danio())
     }
 }
 
