@@ -13,9 +13,11 @@ object jugador {
     var property direccion = arriba
 
     
-    method colisionadoPor(deltaVida) {
-    	vidas.modificar(deltaVida)
-    	puntos.modificar(deltaVida*100)
+    method colisionadoPor(unObjeto) {
+    	//vidas.modificar(deltaVida)
+    	//puntos.modificar(deltaVida*100)
+    	vidas.modificar(unObjeto.danio())
+    	puntos.modificar(100) // aca tene lo puntos de cada objeto
     } 
     
 	method image() = "jugador_" + direccion.nombre() + ".png"
