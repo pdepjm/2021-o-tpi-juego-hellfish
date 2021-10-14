@@ -62,7 +62,7 @@ object nivel {
 		
 		// Item Vida
 		//game.addVisual(new ItemVida(posicion = game.at(3, 15)))
-		const vidaExtra = new ItemVida(position = game.at(3, 15))
+		const vidaExtra = new ItemVida(position = game.at(3, 15),desplazamiento = abajo)
 				
 		enemigo1.addObjetoMovil()
 		enemigo2.addObjetoMovil()

@@ -20,9 +20,4 @@ object abajo {
 	method nombre () = "down"
 	
 	method desplazar(posicionActual, desplazamietno) = posicionActual.down(desplazamietno)
-    
 }
-    
-    //method desplazarAsiAbajo() {
-    	//position = position.down(velocidad)
-    //}

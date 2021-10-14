@@ -16,6 +16,7 @@ object jugador {
     method colisionadoPor(unObjeto) {
     	//vidas.modificar(deltaVida)
     	//puntos.modificar(deltaVida*100)
+    	unObjeto.efecto()
     	vidas.modificar(unObjeto.danio())
     	puntos.modificar(100) // aca tene lo puntos de cada objeto
     } 
