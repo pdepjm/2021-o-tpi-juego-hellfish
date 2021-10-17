@@ -44,7 +44,7 @@ test "Cuando la vida es 0 se termina el juego"{
 
 
 describe "Test Enemigo"{ 	
-var enemigo = new Enemigo()
+const enemigo = new Enemigo()
 
 test "Un enemigo hace danio al impactar un jugador"{
 	enemigo.addObjetoMovil()
@@ -56,8 +56,7 @@ test "Un enemigo hace danio al impactar un jugador"{
 test "Un enemigo que impacta debe desaparecer"{
 	enemigo.addObjetoMovil()
 	enemigo.efecto()
-	assert.throwsException(enemigo.image())
-
+	assert.notThat(game.hasVisual(enemigo))
 }
 }
 
@@ -112,7 +111,6 @@ test "Si el arma impacta al personaje no lo elimina" {
 	game.addVisual(jugador)
 	lanza.impactar(jugador)
 	assert.that(game.hasVisual(jugador))
-}
- 
+} 
 }
 
