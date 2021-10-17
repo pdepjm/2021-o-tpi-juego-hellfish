@@ -3,13 +3,8 @@ import nivel.*
 
 object vida {
 	var property cantidad = 3
-	var posicion = game.at(7,11)
+	var property position = game.at(7,11)
 	
-  	method position() = posicion
-	
-	method posicion(unaPosicion) {
-		 posicion = unaPosicion
-	} 
 	
 	method image() = "vida.png"
 	
@@ -17,8 +12,14 @@ object vida {
 	
 	method modificar(cant) {
 		cantidad = cantidad + cant
+		self.chequearVida()
+	}
+	
+	method chequearVida(){
 		if(cantidad==0){
 			nivel.gameOver()
 		}
-	} 	
+	}
+	
+	method impactadoPorArma(arma) {} 	
 }
