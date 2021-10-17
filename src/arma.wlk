@@ -7,26 +7,32 @@ import ObjetoMovil.*
 // hacer desaparecer el objeto
 object lanza {
   	// Dos wko para los estados
-  	var movimiento = false
+  	//var movimiento = false
   	var property position = game.at(-3,0)
-  	const velocidad = 1
+  	const property velocidad = 1
+  	// Nueva Implementacion
+  	var estadoArma = armaEstatica
+  	
   		  
   	method image() = "lanza.png"
  	
 	method disparar(personaje) {
-		movimiento = true
-		position = personaje.position()
-		position = position.down(2)
+		//movimiento = true
+		//position = personaje.position()
+		//position = position.down(2)
+		estadoArma = armaDinamica
+		estadoArma.inicializarArma(self)
 	}
 
 	 
     method desplazar() {
-    	if (movimiento) {
-    		position = position.up(velocidad)
-    	}
-    	else{
-    		position = game.at(-3,0) 
-    	}
+    	//if (movimiento) {
+    		//position = position.up(velocidad)
+    	//}
+    	//else{
+    		//position = game.at(-3,0) 
+    	//}
+    	estadoArma.desplazar(self)
     }
 
     method addArma() {
@@ -35,23 +41,33 @@ object lanza {
     }
     
     method impactar(unObjeto) {
-    	// sacar el if
-    	if(unObjeto.equals(jugador).negate()){
-     		//unObjeto.impacto()
-     		//unObjeto.efecto()
-     		unObjeto.impactadoPor(self)
-     		self.impacto()	
-     		puntos.modificar(1000)
-     	}
-     } 
+     	unObjeto.impactadoPorArma(self)
+    } 
      
 	method impacto() {
      	position = game.at(-3,0)
-     	movimiento = false
+     	//movimiento = false
+     	estadoArma=armaEstatica
      }
      
      method danio() = 0
      
-     method efecto() {}
-     
+     method efecto() {}    
+}
+
+
+
+object armaEstatica {
+	method desplazar(arma) {}
+	method inicializarArma(arma) {}
+}
+
+object armaDinamica {
+	method inicializarArma(arma) {
+		arma.position(jugador.position().down(2))
+	}
+	
+	method desplazar(arma) {
+		arma.position(arma.position().up(arma.velocidad()))
+	}
 }
