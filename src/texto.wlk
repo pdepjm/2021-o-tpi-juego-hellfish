@@ -13,25 +13,30 @@ import score.*
 // Les dejamos algunos ejemplos
 // ¡También se puede combinar con las imágenes!
 
-object texto {
-	
+object textoVida {	
 	method position() = game.at(6, 11)
 	
 	method text() = "Vida:" + (vida.vidas()).toString()
 	
 	method textColor() = paleta.rojo()
+	
+	method impactadoPorArma(arma) {}
 }
 
-object paleta {
-	method verde() = "00FF00FF"
-	method rojo() = "FF0000FF"
-}
 
-object texto2 {
+object textoScore {
 	
 	method position() = game.at(1, 11)
 	
 	method text() = "Score:" + (puntos.puntos()).toString()
 	
 	method textColor() = paleta.verde()
+	
+	method impactadoPorArma(arma) {}
+}
+
+
+object paleta {
+	method verde() = "00FF00FF"
+	method rojo() = "FF0000FF"
 }

@@ -47,8 +47,8 @@ object nivel {
 		
 		// Personaje
 		game.addVisual(jugador)
-		game.addVisual(texto)
-		game.addVisual(texto2)
+		game.addVisual(textoVida)
+		game.addVisual(textoScore)
 		game.addVisual(vida)
 		lanza.addArma()
 		
