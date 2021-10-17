@@ -1,5 +1,6 @@
 import wollok.game.*
 import direcciones.*
+import score.*
 
 class ObjetoMovil {
 	const velocidad = 1
@@ -11,14 +12,17 @@ class ObjetoMovil {
     	game.removeVisual(self)
     }
     
-   	method impactadoPor(unObjeto){
+   	method impactadoPorArma(arma) {	
     	game.removeVisual(self)
+    	puntos.modificar(1000)
+    	
+    	arma.impacto()
     }
     
     method danio() = 0
      
     method addObjetoMovil() {
-    	game.onTick(300, "desplazar", { => position = desplazamiento.desplazar(position, velocidad)})
+    	game.onTick(350, "desplazar", { => position = desplazamiento.desplazar(position, velocidad)})
     	game.addVisual(self)
     }
 }
