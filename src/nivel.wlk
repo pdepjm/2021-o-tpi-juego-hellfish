@@ -7,6 +7,7 @@ import pepita.*
 import enemigo.*
 import itemVida.*
 import texto.*
+import generadorDeObjetosMoviles.*
 
 class Visual {
 	var property image
@@ -55,20 +56,23 @@ object nivel {
 		
 		// Enemigos
 		// timer para enemigos
-		const enemigo1 = new Enemigo(position = game.at(6, 20),desplazamiento = abajo)
-		const enemigo2 = new Enemigo(position = game.at(2, 25),desplazamiento = abajo)
-		const enemigo3 = new Enemigo(position = game.at(3, 30),desplazamiento = abajo)
-		const enemigo4 = new Enemigo(position = game.at(5, 35),desplazamiento = abajo)
+		//const enemigo1 = new Enemigo(position = game.at(6, 20),desplazamiento = abajo)
+		//const enemigo2 = new Enemigo(position = game.at(2, 25),desplazamiento = abajo)
+		//const enemigo3 = new Enemigo(position = game.at(3, 30),desplazamiento = abajo)
+		//const enemigo4 = new Enemigo(position = game.at(5, 35),desplazamiento = abajo)
 		
 		// Item Vida
 		//game.addVisual(new ItemVida(posicion = game.at(3, 15)))
-		const vidaExtra = new ItemVida(position = game.at(3, 15),desplazamiento = abajo)
+		//const vidaExtra = new ItemVida(position = game.at(3, 15),desplazamiento = abajo)
 				
-		enemigo1.addObjetoMovil()
-		enemigo2.addObjetoMovil()
-		enemigo3.addObjetoMovil()
-		enemigo4.addObjetoMovil()
-		vidaExtra.addObjetoMovil()
+		//enemigo1.addObjetoMovil()
+		//enemigo2.addObjetoMovil()
+		//enemigo3.addObjetoMovil()
+		//enemigo4.addObjetoMovil()
+		//vidaExtra.addObjetoMovil()
+		
+		game.onTick(2000, "generarEnemigo", { => generadorDeObjetosMoviles.generarEnemigo()})
+		game.onTick(10000, "generaritemVida", { => generadorDeObjetosMoviles.generarItemVida()})
 		
 		//	Comandos	
 		self.configurarTeclas()
