@@ -15,7 +15,7 @@ import score.*
 
 object texto {
 	
-	method position() = game.at(7, 11)
+	method position() = game.at(6, 11)
 	
 	method text() = "Vida:" + (vida.vidas()).toString()
 	

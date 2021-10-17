@@ -3,7 +3,7 @@ import nivel.*
 
 object vida {
 	var property cantidad = 3
-	var posicion = game.at(8,11)
+	var posicion = game.at(7,11)
 	
   	method position() = posicion
 	
