@@ -1,11 +1,13 @@
-import soundProducer.*
+//import soundProducer.*
 import wollok.game.*
 import direcciones.*
 import vida.*
 import jugador.*
 import arma.*
-import pepita.*
 import enemigo.*
+import itemVida.*
+import score.*
+//import ObjetoMovil.*
 
 
 describe "Test Jugador" {	
@@ -20,45 +22,59 @@ test "Cuando un jugador dispara mira asi arriba"{
 }
 	
 test "Cuando un jugador es colicionado por un objeto pierde uno de vida"{
-	jugador.colisionadoPor(-1)
+	const enemigo = new Enemigo()
+	enemigo.addObjetoMovil()
+	jugador.colisionadoPor(enemigo)
 	assert.equals(2, jugador.obtenerVidas().cantidad())
 }
-
-// test personaje arma
 }
 
 
 describe "Test Vida" {	
-test "Se aumenta la cantidad de Vida"{	
+test "Se modifica la cantidad de Vida"{	
 	vida.modificar(1)
 	assert.equals(4,vida.cantidad())
 }
 
-test "Se disminuye la cantidad de Vida"{	
-	vida.modificar(-1)
-	assert.equals(2,vida.cantidad())
-}
-
 test "Cuando la vida es 0 se termina el juego"{	
-	// ...
-	assert.that(true)
+	3.times({_=>vida.modificar(-1)})
+	assert.notThat(game.hasVisual(jugador))
 }
 }
 
 
-describe "Test Enemigo"{
+describe "Test Enemigo"{ 	
 var enemigo = new Enemigo()
 
-test "Un enemigo que hace danio"{
-	//var danio = enemigo.danio()
-	//assert.equals(-1, danio)
-	assert.that(true)
+test "Un enemigo hace danio al impactar un jugador"{
+	enemigo.addObjetoMovil()
+	const vidaComienzo = vida.cantidad()
+	jugador.colisionadoPor(enemigo)
+	assert.equals(vidaComienzo-1,vida.cantidad())
 }
 
-test "Un enemigo que impacta"{	
-	//assert.equals(desaparece, ejercito.impacta())
-	assert.that(true)
-}	
+test "Un enemigo que impacta debe desaparecer"{
+	enemigo.addObjetoMovil()
+	enemigo.efecto()
+	assert.throwsException(enemigo.image())
+
+}
+}
+
+
+describe "Test ItemVida"{ 
+const vidaExtra = new ItemVida()
+	
+test "El efecto del ItemVida aumenta la salud de un jugador" {
+	vidaExtra.addObjetoMovil()
+	vidaExtra.efecto()
+	assert.equals(4,vida.cantidad())
+}
+test "chocar al ItemVida aumenta el score" {
+	vidaExtra.addObjetoMovil()
+	jugador.colisionadoPor(vidaExtra)
+	assert.equals(puntos.puntos(),100)
+}
 }
 
 
@@ -68,7 +84,7 @@ test "Al disparar el arma se posiciciona debajo del jugador"{
 	lanza.disparar(jugador)
 	assert.equals(lanza.position(), jugador.position().down(2))
 }
-/*
+
 test "El arma se desplaza si esta en movimiento"{
 	
 	lanza.disparar(jugador)
@@ -85,13 +101,13 @@ test "El arma no se desplaza si no esta en movimiento"{
 }	
 
 test "Si el arma impacta un objote lo elimina" {
-	const enemigo = new Enemigo(posicion = game.at(6, 20))
+	const enemigo = new Enemigo(position = game.at(6, 20))
 	game.addVisual(enemigo)
 	
 	lanza.impactar(enemigo)
 	assert.notThat(game.hasVisual(enemigo))
 }
-*/
+
 test "Si el arma impacta al personaje no lo elimina" {
 	game.addVisual(jugador)
 	lanza.impactar(jugador)
