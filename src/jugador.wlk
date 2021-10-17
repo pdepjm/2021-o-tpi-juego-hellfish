@@ -51,4 +51,5 @@ object jugador {
     
     method impacto() {}
     
+    method impactadoPorArma(armaDelImpacto) {}
 }
