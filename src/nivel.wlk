@@ -9,28 +9,15 @@ import itemVida.*
 import texto.*
 import generadorDeObjetosMoviles.*
 
+
 class Visual {
 	var property image
 	var property position = game.origin()
 }
 
-/*
-object fondoDelJuego inherits Visual(
-	image = "page_background.png",
-	position = new Position(x=0,y=0)
-){
-	method colisionadoPor(visual){}
-	method danio() = 0
-}
-*/
 
 const gameOver = new Visual(
 	image = "gameOverFoto4.png", 
-	position = game.at(0,0)
-)
-
-const youWin = new Visual(
-	image = "you-win.png", 
 	position = game.at(0,0)
 )
 
@@ -43,10 +30,9 @@ object nivel {
 		game.width(9)
 		
 		// Fondo
-		//game.addVisual(fondoDelJuego)
 		game.boardGround("page_background.png")
 		
-		// Personaje
+		// Personajes
 		game.addVisual(jugador)
 		game.addVisual(textoVida)
 		game.addVisual(textoScore)
@@ -54,34 +40,19 @@ object nivel {
 		lanza.addArma()
 		
 		
-		// Enemigos
-		// timer para enemigos
-		//const enemigo1 = new Enemigo(position = game.at(6, 20),desplazamiento = abajo)
-		//const enemigo2 = new Enemigo(position = game.at(2, 25),desplazamiento = abajo)
-		//const enemigo3 = new Enemigo(position = game.at(3, 30),desplazamiento = abajo)
-		//const enemigo4 = new Enemigo(position = game.at(5, 35),desplazamiento = abajo)
-		
-		// Item Vida
-		//game.addVisual(new ItemVida(posicion = game.at(3, 15)))
-		//const vidaExtra = new ItemVida(position = game.at(3, 15),desplazamiento = abajo)
-				
-		//enemigo1.addObjetoMovil()
-		//enemigo2.addObjetoMovil()
-		//enemigo3.addObjetoMovil()
-		//enemigo4.addObjetoMovil()
-		//vidaExtra.addObjetoMovil()
-		
+		// Generador de objetos
 		game.onTick(2000, "generarEnemigo", { => generadorDeObjetosMoviles.generarEnemigo()})
 		game.onTick(10000, "generaritemVida", { => generadorDeObjetosMoviles.generarItemVida()})
 		
-		//	Comandos	
+		
+		//	Movimientos	
 		self.configurarTeclas()
+		
 		
 		// Colicion
 		self.configurarColisiones()
-		
-		//game.addVisual(pepita)
 	}
+	
 	
 	method configurarTeclas(){
 		keyboard.left().onPressDo({ jugador.moverPara(izquierda) })	
@@ -98,12 +69,6 @@ object nivel {
 		game.clear()
 		game.title("Perdiste")
         game.addVisual(gameOver)		
-	}
-	
-	method ganaste(){
-		game.clear()
-		game.title("Ganaste")
-        game.addVisual(youWin)		
 	}
 }
 	
