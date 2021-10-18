@@ -50,6 +50,6 @@ object jugador {
     }
     
     method impacto() {}
-    
     method impactadoPorArma(armaDelImpacto) {}
+    method puntosObtenidos() = 0
 }

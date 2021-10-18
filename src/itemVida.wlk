@@ -5,6 +5,8 @@ import ObjetoMovil.*
 class ItemVida inherits ObjetoMovil {
 	const incrementoVida = 1
 	
+	override method puntosObtenidos() = -100
+	
 	method image() = "vida.png" 
 	
     method efecto() {

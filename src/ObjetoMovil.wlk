@@ -14,12 +14,14 @@ class ObjetoMovil {
     
    	method impactadoPorArma(arma) {	
     	game.removeVisual(self)
-    	puntos.modificar(1000)
+    	puntos.modificar(self.puntosObtenidos())
     	
     	arma.impacto()
     }
     
     method danio() = 0
+    
+    method puntosObtenidos() = 0
      
     method addObjetoMovil() {
     	game.onTick(350, "desplazar", { => position = desplazamiento.desplazar(position, velocidad)})
