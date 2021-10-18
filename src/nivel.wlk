@@ -81,7 +81,7 @@ object nivel {
 		game.clear()
 		game.title("Ganaste")
         game.addVisual(gameWin)
-        game.addVisual(textoScore2)		
+        game.addVisual(textoVida2)		
 	}
 }
 	

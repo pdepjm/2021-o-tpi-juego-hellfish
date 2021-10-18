@@ -11,7 +11,7 @@ object puntos {
 	}
 	
 	method chequearScore(){
-		if(cantidad >= 10000){
+		if(cantidad >= 200){
 			nivel.gameWin()
 		}
 	}
