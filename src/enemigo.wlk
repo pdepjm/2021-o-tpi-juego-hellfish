@@ -13,4 +13,3 @@ class Enemigo inherits ObjetoMovil {
     	game.removeVisual(self)
     }
 }
-

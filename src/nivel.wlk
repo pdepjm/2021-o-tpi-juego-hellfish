@@ -77,11 +77,11 @@ object nivel {
         game.addVisual(textoScore2)		
 	}
 	
-	method gameWin(){
+	/*method gameWin(){
 		game.clear()
 		game.title("Ganaste")
         game.addVisual(gameWin)
         game.addVisual(textoVida2)		
-	}
+	}*/
 }
 	
