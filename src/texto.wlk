@@ -36,6 +36,17 @@ object textoScore {
 }
 
 
+object textoScore2 {
+	
+	method position() = game.at(3, 3)
+	
+	method text() = "Score:" + (puntos.puntos()).toString()
+	
+	method textColor() = paleta.verde()
+	
+	method impactadoPorArma(arma) {}
+}
+
 object paleta {
 	method verde() = "00FF00FF"
 	method rojo() = "FF0000FF"

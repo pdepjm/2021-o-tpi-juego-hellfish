@@ -17,7 +17,12 @@ class Visual {
 
 
 const gameOver = new Visual(
-	image = "gameOverFoto4.png", 
+	image = "gameOver.png", 
+	position = game.at(0,0)
+)
+
+const gameWin = new Visual(
+	image = "you-win.png", 
 	position = game.at(0,0)
 )
 
@@ -68,7 +73,15 @@ object nivel {
 	method gameOver(){
 		game.clear()
 		game.title("Perdiste")
-        game.addVisual(gameOver)		
+        game.addVisual(gameOver)
+        game.addVisual(textoScore2)		
+	}
+	
+	method gameWin(){
+		game.clear()
+		game.title("Ganaste")
+        game.addVisual(gameWin)
+        game.addVisual(textoScore2)		
 	}
 }
 	
