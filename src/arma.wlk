@@ -6,32 +6,19 @@ import ObjetoMovil.*
 
 // hacer desaparecer el objeto
 object lanza {
-  	// Dos wko para los estados
-  	//var movimiento = false
   	var property position = game.at(-3,0)
   	const property velocidad = 1
-  	// Nueva Implementacion
   	var estadoArma = armaEstatica
   	
   		  
   	method image() = "lanza.png"
  	
 	method disparar(personaje) {
-		//movimiento = true
-		//position = personaje.position()
-		//position = position.down(2)
 		estadoArma = armaDinamica
 		estadoArma.inicializarArma(self)
 	}
 
-	 
     method desplazar() {
-    	//if (movimiento) {
-    		//position = position.up(velocidad)
-    	//}
-    	//else{
-    		//position = game.at(-3,0) 
-    	//}
     	estadoArma.desplazar(self)
     }
 
@@ -46,7 +33,6 @@ object lanza {
      
 	method impacto() {
      	position = game.at(-3,0)
-     	//movimiento = false
      	estadoArma=armaEstatica
      }
      

@@ -14,11 +14,8 @@ object jugador {
 
     
     method colisionadoPor(unObjeto) {
-    	//vidas.modificar(deltaVida)
-    	//puntos.modificar(deltaVida*100)
     	unObjeto.efecto()
     	vidas.modificar(unObjeto.danio())
-    	puntos.modificar(100) // aca tene lo puntos de cada objeto
     } 
     
 	method image() = "jugador_" + direccion.nombre() + ".png"
@@ -51,5 +48,4 @@ object jugador {
     
     method impacto() {}
     method impactadoPorArma(armaDelImpacto) {}
-    method puntosObtenidos() = 0
 }
