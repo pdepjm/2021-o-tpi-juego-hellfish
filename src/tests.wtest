@@ -69,10 +69,10 @@ test "El efecto del ItemVida aumenta la salud de un jugador" {
 	vidaExtra.efecto()
 	assert.equals(4,vida.cantidad())
 }
-test "chocar al ItemVida aumenta el score" {
+test "chocar al ItemVida disminuye el score" {
 	vidaExtra.addObjetoMovil()
-	jugador.colisionadoPor(vidaExtra)
-	assert.equals(puntos.puntos(),100)
+	lanza.impactar(vidaExtra)
+	assert.equals(puntos.puntos(),-100)
 }
 }
 
