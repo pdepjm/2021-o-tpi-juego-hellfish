@@ -7,7 +7,7 @@ import arma.*
 import enemigo.*
 import itemVida.*
 import score.*
-//import ObjetoMovil.*
+import ObjetoMovil.*
 
 
 describe "Test Jugador" {	
@@ -74,6 +74,30 @@ test "chocar al ItemVida aumenta el score" {
 	jugador.colisionadoPor(vidaExtra)
 	assert.equals(puntos.puntos(),100)
 }
+}
+
+
+describe "Test ObjetoMovil" {
+	var objeto
+	
+	test "Un objeto movil no genera danio" {
+		objeto = new ObjetoMovil(desplazamiento = arriba)
+		
+		assert.equals(0,objeto.danio())
+	}
+	
+	test "No se obtiene punto por la destruccion de un objeto movil" {
+		objeto = new ObjetoMovil(desplazamiento = arriba)
+		assert.equals(0,objeto.puntosObtenidos())
+	}
+	
+	test "Un objeto movil al ser impactado desaparece" {
+		objeto = new ObjetoMovil(desplazamiento = arriba)
+		objeto.addObjetoMovil()
+		objeto.impactadoPorArma(lanza)
+		
+		assert.notThat(game.hasVisual(objeto))
+	}
 }
 
 

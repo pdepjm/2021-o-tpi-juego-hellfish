@@ -8,11 +8,7 @@ class ObjetoMovil {
 	var property desplazamiento = arriba  
 	
  
-    method impactadoPor(){
-    	game.removeVisual(self)
-    }
-    
-   	method impactadoPorArma(arma) {	
+    method impactadoPorArma(arma) {	
     	game.removeVisual(self)
     	puntos.modificar(self.puntosObtenidos())
     	
