@@ -24,7 +24,7 @@ test "Cuando un jugador dispara mira asi arriba"{
 	
 test "Cuando un jugador es colicionado por un objeto pierde uno de vida"{
 	const enemigo = new Enemigo()
-	enemigo.addObjetoMovil()
+	enemigo.addObjetoMovil(0)
 	jugador.colisionadoPor(enemigo)
 	assert.equals(2, jugador.obtenerVidas().cantidad())
 }
@@ -48,14 +48,14 @@ describe "Test Enemigo"{
 const enemigo = new Enemigo()
 
 test "Un enemigo hace danio al impactar un jugador"{
-	enemigo.addObjetoMovil()
+	enemigo.addObjetoMovil(0)
 	const vidaComienzo = vida.cantidad()
 	jugador.colisionadoPor(enemigo)
 	assert.equals(vidaComienzo-1,vida.cantidad())
 }
 
 test "Un enemigo que es impactado debe desaparecer"{
-	enemigo.addObjetoMovil()
+	enemigo.addObjetoMovil(0)
 	enemigo.efecto()
 	assert.notThat(game.hasVisual(enemigo))
 }
@@ -70,12 +70,12 @@ describe "Test ItemVida"{
 const vidaExtra = new ItemVida()
 	
 test "El efecto del ItemVida aumenta la salud de un jugador" {
-	vidaExtra.addObjetoMovil()
+	vidaExtra.addObjetoMovil(0)
 	vidaExtra.efecto()
 	assert.equals(4,vida.cantidad())
 }
 test "La destruccion del itemVida resta 100 puntos al score" {
-	vidaExtra.addObjetoMovil()
+	vidaExtra.addObjetoMovil(0)
 	lanza.impactar(vidaExtra)
 	assert.equals(puntos.puntos(),-100)
 }
@@ -98,7 +98,7 @@ describe "Test ObjetoMovil" {
 	
 	test "Un objeto movil al ser impactado desaparece" {
 		objeto = new ObjetoMovil(desplazamiento = arriba)
-		objeto.addObjetoMovil()
+		objeto.addObjetoMovil(0)
 		objeto.impactadoPorArma(lanza)
 		
 		assert.notThat(game.hasVisual(objeto))
@@ -114,7 +114,6 @@ test "Al disparar el arma se posiciciona debajo del jugador"{
 }
 
 test "El arma se desplaza si esta en movimiento"{
-	
 	lanza.disparar(jugador)
 	const posicionActual = lanza.position().up(1)
 	lanza.desplazar() 
@@ -128,9 +127,9 @@ test "El arma no se desplaza si no esta en movimiento"{
 	assert.equals(posicionActual, lanza.position())
 }	
 
-test "Si el arma impacta un objote lo elimina" {
-	const enemigo = new Enemigo(position = game.at(6, 20))
-	game.addVisual(enemigo)
+test "Si el arma impacta un objeto lo elimina" {
+	const enemigo = new Enemigo()
+	enemigo.addObjetoMovil(0)
 	
 	lanza.impactar(enemigo)
 	assert.notThat(game.hasVisual(enemigo))
