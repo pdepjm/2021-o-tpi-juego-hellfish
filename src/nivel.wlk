@@ -74,7 +74,7 @@ object nivel {
 		game.clear()
 		game.title("Perdiste")
         game.addVisual(gameOver)
-        game.addVisual(textoScore2)		
+        game.addVisual(textoScoreFinal)		
 	}
 	
 	/*method gameWin(){
