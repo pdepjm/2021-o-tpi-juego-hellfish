@@ -5,7 +5,7 @@ import itemVida.*
 
 
 object generadorDeObjetosMoviles {
-	const posicionY = game.height() + 1
+	var property posicionY = game.height() + 1
 		
 	method generarEnemigo() {
 		const posicionX = random.getRandom(game.width())

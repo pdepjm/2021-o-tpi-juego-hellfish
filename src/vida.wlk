@@ -8,8 +8,6 @@ object vida {
 	
 	method image() = "vida.png"
 	
-	method vidas() = cantidad
-	
 	method modificar(cant) {
 		cantidad = cantidad + cant
 		self.chequearVida()
