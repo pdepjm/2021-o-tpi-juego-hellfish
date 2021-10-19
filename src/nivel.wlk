@@ -7,6 +7,7 @@ import pepita.*
 import enemigo.*
 import itemVida.*
 import texto.*
+import base.*
 import generadorDeObjetosMoviles.*
 
 
@@ -42,6 +43,7 @@ object nivel {
 		game.addVisual(textoVida)
 		game.addVisual(textoScore)
 		game.addVisual(vida)
+		game.addVisual(base)
 		lanza.addArma()
 		
 		
