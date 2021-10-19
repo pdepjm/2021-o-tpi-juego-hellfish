@@ -8,6 +8,7 @@ import enemigo.*
 import itemVida.*
 import score.*
 import ObjetoMovil.*
+import generadorDeObjetosMoviles.*
 
 
 describe "Test Jugador" {	
@@ -53,10 +54,14 @@ test "Un enemigo hace danio al impactar un jugador"{
 	assert.equals(vidaComienzo-1,vida.cantidad())
 }
 
-test "Un enemigo que impacta debe desaparecer"{
+test "Un enemigo que es impactado debe desaparecer"{
 	enemigo.addObjetoMovil()
 	enemigo.efecto()
 	assert.notThat(game.hasVisual(enemigo))
+}
+
+test "La destruccion de un enemigo da 100 puntos al score"{
+	assert.equals(100,enemigo.puntosObtenidos())
 }
 }
 
@@ -69,7 +74,7 @@ test "El efecto del ItemVida aumenta la salud de un jugador" {
 	vidaExtra.efecto()
 	assert.equals(4,vida.cantidad())
 }
-test "chocar al ItemVida disminuye el score" {
+test "La destruccion del itemVida resta 100 puntos al score" {
 	vidaExtra.addObjetoMovil()
 	lanza.impactar(vidaExtra)
 	assert.equals(puntos.puntos(),-100)
