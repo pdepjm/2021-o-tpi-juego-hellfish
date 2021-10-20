@@ -43,7 +43,7 @@ object nivel {
 		game.addVisual(textoVida)
 		game.addVisual(textoScore)
 		game.addVisual(vida)
-		game.addVisual(base)
+		//game.addVisual(base)
 		lanza.addArma()
 		
 		

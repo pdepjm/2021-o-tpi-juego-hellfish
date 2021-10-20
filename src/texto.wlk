@@ -23,16 +23,6 @@ object textoVida {
 	method impactadoPorArma(arma) {}
 }
 
-/*object textoVida2 {	
-	method position() = game.at(4, 5)
-	
-	method text() = "Terminaste con " + (vida.vidas()).toString() + " vidas"
-	
-	method textColor() = paleta.rojo()
-	
-	method impactadoPorArma(arma) {}
-}*/
-
 
 object textoScore {
 	

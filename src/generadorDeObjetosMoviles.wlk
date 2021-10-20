@@ -15,6 +15,7 @@ object generadorDeObjetosMoviles {
 		enemigo.addObjetoMovil(cantidadGenerada)
 		
 		self.incrementarCantidadGenerada()
+		
 	}
 	
 	method generarItemVida() {
@@ -29,6 +30,9 @@ object generadorDeObjetosMoviles {
 	method incrementarCantidadGenerada() {
 		cantidadGenerada++
 	}
+	
+	method cantidadGenerada()=cantidadGenerada
+
 }
 
 

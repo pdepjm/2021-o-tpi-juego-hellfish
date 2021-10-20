@@ -11,8 +11,3 @@ object pepita {
 		game.say(self, "Aaaaaaaaaaa")
 	}
 }
-
-/*object fondoDelJuego {
-	method image() = "page_background.PNG"
-	method position() = new Position(x=0,y=0)
-}*/

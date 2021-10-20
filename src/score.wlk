@@ -7,14 +7,7 @@ object puntos {
 	
 	method modificar(cant) {
 		cantidad = cantidad + cant
-		//self.chequearScore()
 	}
-	
-	/*method chequearScore(){
-		if(cantidad >= 200){
-			nivel.gameWin()
-		}
-	}*/
 	
 	method puntos() = cantidad
 }

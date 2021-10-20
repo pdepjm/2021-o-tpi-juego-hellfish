@@ -6,7 +6,7 @@ import ObjetoMovil.*
 
 // hacer desaparecer el objeto
 object lanza {
-  	var property position = game.at(-3,0)
+  	var property position = game.at(0,-3)
   	const property velocidad = 1
   	var estadoArma = armaEstatica
   	

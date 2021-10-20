@@ -3,23 +3,21 @@ import score.*
 
 object base {
 	
-	var property position = game.at(0,-1) 
+	var property position = game.at(0,0) 
 	
 	method image() = "base.png"
 	
-	
-	method impacto() {//puntos.modificar(-100)}
-	}
+	method impacto() {puntos.modificar(-100)}
 	
     method impactadoPorArma(armaDelImpacto) {}
     
-    method efecto() {}
+    method efecto() {puntos.modificar(-100)}
     
     method danio() = 0
     
-	/*method colisionadoPor(unObjeto) {
+	method colisionadoPor(unObjeto) {
     	unObjeto.efecto()
-    	vidas.modificar(unObjeto.danio())
-    } */
+    	puntos.modificar(-100)
+    } 
     
 }
