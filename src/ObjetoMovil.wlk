@@ -8,7 +8,6 @@ class ObjetoMovil {
 	var property desplazamiento = arriba
 	var timerName = "TimerName" 
 	
- 
     method impactadoPorArma(arma) {	
     	game.removeVisual(self)
     	game.removeTickEvent(timerName)
@@ -25,5 +24,13 @@ class ObjetoMovil {
     	timerName = nombreTimer.concat(idTimer.toString())
     	game.onTick(350, timerName, { => position = desplazamiento.desplazar(position, velocidad)})
     	game.addVisual(self)
+    	
+    	
     }
+    
+    method fuera(deltaPuntos){
+   		if(self.position().y()==0) {
+			puntos.modificar(deltaPuntos)
+		}
+   }
 }

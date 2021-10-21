@@ -22,10 +22,10 @@ const gameOver = new Visual(
 	position = game.at(0,0)
 )
 
-const gameWin = new Visual(
-	image = "you-win.png", 
-	position = game.at(0,0)
-)
+//const gameWin = new Visual(
+	//image = "you-win.png", 
+	//position = game.at(0,0)
+//)
 
 
 object nivel {
@@ -45,6 +45,7 @@ object nivel {
 		game.addVisual(vida)
 		//game.addVisual(base)
 		//lanza.addArma()
+		
 		
 		//	Movimientos	
 		self.configurarTeclas()
@@ -77,11 +78,5 @@ object nivel {
         game.addVisual(textoScoreFinal)		
 	}
 	
-	/*method gameWin(){
-		game.clear()
-		game.title("Ganaste")
-        game.addVisual(gameWin)
-        game.addVisual(textoVida2)		
-	}*/
 }
 	

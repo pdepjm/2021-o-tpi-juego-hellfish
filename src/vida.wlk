@@ -2,7 +2,7 @@ import wollok.game.*
 import nivel.*
 
 object vida {
-	var property cantidad = 3
+	var property cantidad = 1
 	var property position = game.at(7,11)
 	
 	
