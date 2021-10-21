@@ -16,16 +16,10 @@ class Visual {
 	var property position = game.origin()
 }
 
-
 const gameOver = new Visual(
 	image = "gameOver.png", 
 	position = game.at(0,0)
 )
-
-//const gameWin = new Visual(
-	//image = "you-win.png", 
-	//position = game.at(0,0)
-//)
 
 
 object nivel {

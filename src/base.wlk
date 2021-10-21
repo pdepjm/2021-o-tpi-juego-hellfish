@@ -5,8 +5,6 @@ object base {
 	
 	var property position = game.at(0,0) 
 	
-	method image() = "base.png"
-	
 	method impacto() {puntos.modificar(-100)}
 	
     method impactadoPorArma(armaDelImpacto) {}

@@ -10,7 +10,7 @@ import score.*
 import ObjetoMovil.*
 import generadorDeObjetosMoviles.*
 
-
+/*
 describe "Test Jugador" {	
 test "Jugador se mueve"{
 	jugador.moverPara(derecha)
@@ -142,3 +142,4 @@ test "Si el arma impacta al personaje no lo elimina" {
 } 
 }
 
+*/

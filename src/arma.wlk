@@ -25,7 +25,6 @@ class Lanza inherits ObjetoMovil {
     } 
      
 	method impacto() {
-     	//position = game.at(-3,0)
      	estadoArma = armaEstatica
      	estadoArma.inicializarArma(self)
      	self.destruir()
@@ -36,25 +35,8 @@ class Lanza inherits ObjetoMovil {
     	game.removeTickEvent(timerName)
     }
     
-    method efecto() {}
-	
-	/*
-  	var property position = game.at(-3,0)
-  	const property velocidad = 1
-
-    method desplazar() {
-    	estadoArma.desplazar(self)
-    }
-
-    method addArma(idArma) {
-    	game.onTick(300, "desplazar", { => self.desplazar()})
-    	game.addVisual(self)
-    }
-     
-	method danio() = 0
-     */    
+    method efecto() {}    
 }
-
 
 
 object armaEstatica {
@@ -75,6 +57,7 @@ object armaDinamica {
 		arma.position(arma.position().up(arma.velocidad()))
 	}
 }
+
 
 object lanzasLanzadas {
 	var cantidad = 0;

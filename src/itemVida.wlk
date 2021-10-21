@@ -7,10 +7,13 @@ class ItemVida inherits ObjetoMovil {
 	
 	override method puntosObtenidos() = -100
 	
+	method image() = "vida.png" 
+	/*
 	method image()  {
 		self.fuera(-1)
 		return "vida.png" 
 	}
+	*/
 	
     method efecto() {
     	jugador.modificarVida(incrementoVida)

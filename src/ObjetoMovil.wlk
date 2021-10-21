@@ -17,7 +17,6 @@ class ObjetoMovil {
     }
     
     method danio() = 0
-    
     method puntosObtenidos() = 0
      
     method addObjetoMovil(nombreTimer, idTimer) {
@@ -27,10 +26,11 @@ class ObjetoMovil {
     	
     	
     }
-    
+    /*
     method fuera(deltaPuntos){
    		if(self.position().y()==0) {
 			puntos.modificar(deltaPuntos)
 		}
    }
+   */
 }
