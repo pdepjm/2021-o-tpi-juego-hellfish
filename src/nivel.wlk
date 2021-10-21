@@ -43,21 +43,18 @@ object nivel {
 		game.addVisual(textoVida)
 		game.addVisual(textoScore)
 		game.addVisual(vida)
-		game.addVisual(base)
-		lanza.addArma()
-		
-		
-		// Generador de objetos
-		game.onTick(2000, "generarEnemigo", { => generadorDeObjetosMoviles.generarEnemigo()})
-		game.onTick(10000, "generaritemVida", { => generadorDeObjetosMoviles.generarItemVida()})
-		
+		//game.addVisual(base)
+		//lanza.addArma()
 		
 		//	Movimientos	
 		self.configurarTeclas()
 		
-		
 		// Colicion
 		self.configurarColisiones()
+		
+		// Generador de objetos
+		game.onTick(2000, "generarEnemigo", { => generadorDeObjetosMoviles.generarEnemigo()})
+		game.onTick(10000, "generaritemVida", { => generadorDeObjetosMoviles.generarItemVida()})
 	}
 	
 	
@@ -68,8 +65,9 @@ object nivel {
 	}
 		
 	method configurarColisiones() {		
-	    game.whenCollideDo(jugador.arma(), {e => jugador.arma().impactar(e)})
-	    game.whenCollideDo(jugador, {e =>  jugador.colisionadoPor(e)})			
+	    //game.whenCollideDo(jugador.arma(), {e => jugador.arma().impactar(e)})
+	    //jugador.armas().forEach({arma => game.whenCollideDo(arma, {e => arma.impactar(e)})})
+	    game.whenCollideDo(jugador, {e =>  jugador.colisionadoPor(e)})
      }	    
 
 	method gameOver(){
