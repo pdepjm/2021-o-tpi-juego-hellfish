@@ -20,7 +20,7 @@ class ObjetoMovil {
     method puntosObtenidos() = 0
      
     method addObjetoMovil(nombreTimer, idTimer) {
-    	timerName = nombreTimer.concat(idTimer.toString())
+    	timerName = nombreTimer.toString() + idTimer.toString()
     	game.onTick(350, timerName, { => position = desplazamiento.desplazar(position, velocidad)})
     	game.addVisual(self)
     	
