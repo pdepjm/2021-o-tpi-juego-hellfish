@@ -8,7 +8,7 @@ import arma.*
 object jugador {
 
     var property position = game.at(0,0) 
-    const arma = lanza
+    const property armas = []
     const vidas = vida
     var property direccion = arriba
 
@@ -20,10 +20,8 @@ object jugador {
     
 	method image() = "jugador_" + direccion.nombre() + ".png"
 	
-	method arma() = arma
-	
-	method disparar() {
-		arma.disparar(self)
+	method disparar() {		
+		self.addArma()
 		self.mirarParaArriba()
 	}
 	
@@ -44,6 +42,28 @@ object jugador {
     
     method modificarVida(deltaVida) {
     	vidas.modificar(deltaVida)
+    }
+        	
+	method addArma() {
+		self.chequearCantidadDeArmas()
+		
+		const nuevaArma = new Lanza() 
+		armas.add(nuevaArma)
+		//nuevaArma.addObjetoMovil("arma", armas.size())
+		nuevaArma.addObjetoMovil("arma", nuevaArma.cantidadLanzasLanzadas().cantidad())
+		nuevaArma.cantidadLanzasLanzadas().incrementar()
+	}
+	
+	method chequearCantidadDeArmas() {
+    	if(armas.size() >= 3) {
+    		const armaVieja = armas.get(0)
+    		self.eliminarArma(armaVieja)
+    		armaVieja.destruir()
+    	}
+    }
+    
+    method eliminarArma(arma) {
+    	armas.remove(arma)
     }
     
     method impacto() {}
