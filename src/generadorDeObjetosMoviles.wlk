@@ -6,13 +6,13 @@ import itemVida.*
 
 object generadorDeObjetosMoviles {
 	var property posicionY = game.height() + 1
-	var cantidadGenerada = 0
+	var property cantidadGenerada = 0
 		
 	method generarEnemigo() {
 		const posicionX = random.getRandom(game.width())
 		
 		const enemigo = new Enemigo(position = game.at(posicionX, posicionY), desplazamiento = abajo)
-		enemigo.addObjetoMovil(cantidadGenerada)
+		enemigo.addObjetoMovil("desplazar", cantidadGenerada)
 		
 		self.incrementarCantidadGenerada()
 	}
@@ -21,7 +21,7 @@ object generadorDeObjetosMoviles {
 		const posicionX = random.getRandom(game.width())
 		
 		const vidaExtra = new ItemVida(position = game.at(posicionX, posicionY), desplazamiento = abajo)
-		vidaExtra.addObjetoMovil(cantidadGenerada)
+		vidaExtra.addObjetoMovil("desplazar", cantidadGenerada)
 		
 		self.incrementarCantidadGenerada()
 	}
