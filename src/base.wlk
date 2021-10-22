@@ -1,43 +1,43 @@
 import wollok.game.*
 import score.*
+import ObjetoMovil.*
 
+
+class Cuadrado {
+	var property position = game.at(0, 0)
+	
+	method image() = "piedra.png"
+	
+	method danio() = 0
+    method puntosObtenidos() = 0
+    method efecto() {}
+    method impactadoPorArma(arma) {}
+    
+	method addBase() {
+    	game.addVisual(self)
+    	game.whenCollideDo(self, {objeto => self.impactar(objeto)})
+    }
+    
+    method impactar(unObjeto) {
+     	unObjeto.impactadoPorBase()
+    } 
+      
+}
 object base {
 	
-	var property position = game.at(0,0) 
-	
-	method impacto() {puntos.modificar(-100)}
-	
-    method impactadoPorArma(armaDelImpacto) {}
-    
-    method efecto() {puntos.modificar(-100)}
-    
-    method danio() = 0
-    
-	method colisionadoPor(unObjeto) {
-    	unObjeto.efecto()
-    	puntos.modificar(-100)
-    }
-     
-}
+	var posicionBaseX = 0
+	var cantidadGenerada = 0
 
-/*
-class Cuadrado {
-	var property position = game.at(0,0)
+	method generarBase() {
+		const base = new Cuadrado(position = game.at(posicionBaseX, 0))
+		base.addBase()
+		
+		self.incrementarCantidadGenerada()
+		posicionBaseX = posicionBaseX+1	
+ 	}
+ 	
+    method incrementarCantidadGenerada() {
+		cantidadGenerada++
+	} 
 	
-	method impactoBase(objeto) {
-		objeto.impacto()
-	}
-	
-	method incializar() {}
 }
-
-// Game
-* // Objecto base
-* //-> inicializar
-var base=[]
-// Inicializar
-(1 .. ancho-1).forEach { n => base[n] = new Cuadrado(position=n+1) }
-* 
-// Inicializar colicion
-(1 .. ancho-1).forEach { n => game.oncollitiondo(base[n],{}) }
-*/

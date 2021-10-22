@@ -49,7 +49,7 @@ object armaEstatica {
 
 object armaDinamica {
 	method inicializarArma(arma) {
-		arma.position(jugador.position().down(2))
+		arma.position(jugador.position())
 		game.whenCollideDo(arma, {e => arma.impactar(e)})
 	}
 	

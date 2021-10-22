@@ -30,7 +30,6 @@ object generadorDeObjetosMoviles {
 	method incrementarCantidadGenerada() {
 		cantidadGenerada++
 	}
-
 }
 
 

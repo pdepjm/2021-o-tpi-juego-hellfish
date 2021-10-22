@@ -7,7 +7,7 @@ import arma.*
 
 object jugador {
 
-    var property position = game.at(0,0) 
+    var property position = game.at(0,1) 
     const property armas = []
     const vidas = vida
     var property direccion = arriba
@@ -68,4 +68,5 @@ object jugador {
     
     method impacto() {}
     method impactadoPorArma(armaDelImpacto) {}
+    method impactadoPorBase(base) {}
 }

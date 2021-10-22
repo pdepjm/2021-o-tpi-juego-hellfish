@@ -16,6 +16,12 @@ class ObjetoMovil {
     	arma.impacto()
     }
     
+     method impactadoPorBase() {	
+    	game.removeVisual(self)
+    	game.removeTickEvent(timerName)
+    	puntos.modificar(-100)
+    }
+    
     method danio() = 0
     method puntosObtenidos() = 0
      
@@ -23,14 +29,5 @@ class ObjetoMovil {
     	timerName = nombreTimer.toString() + idTimer.toString()
     	game.onTick(350, timerName, { => position = desplazamiento.desplazar(position, velocidad)})
     	game.addVisual(self)
-    	
-    	
     }
-    /*
-    method fuera(deltaPuntos){
-   		if(self.position().y()==0) {
-			puntos.modificar(deltaPuntos)
-		}
-   }
-   */
 }
