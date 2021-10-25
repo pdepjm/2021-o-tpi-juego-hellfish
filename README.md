@@ -15,7 +15,8 @@
 
 ## Reglas de Juego / Instrucciones
 
-Matar las bolas que van cayendo del cielo, si te pegan perdes una vida.
+Matar las bolas que van cayendo del cielo con una lanza(hasta 3 disparos simultaneos), si te pegan las bolas perdes una vida. Tambien caen corazones,
+que si te pegan ganas una vida. Si las bolas o los corazones pegan en la base perdes puntos, tambien si te pega una bola.
 
 ## Respuestas teóricas
 
