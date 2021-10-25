@@ -49,7 +49,6 @@ object jugador {
 		
 		const nuevaArma = new Lanza() 
 		armas.add(nuevaArma)
-		//nuevaArma.addObjetoMovil("arma", armas.size())
 		nuevaArma.addObjetoMovil("arma", nuevaArma.cantidadLanzasLanzadas().cantidad())
 		nuevaArma.cantidadLanzasLanzadas().incrementar()
 	}

@@ -3,7 +3,6 @@ import direcciones.*
 import vida.*
 import jugador.*
 import arma.*
-import pepita.*
 import enemigo.*
 import itemVida.*
 import texto.*
@@ -20,7 +19,6 @@ const gameOver = new Visual(
 	image = "gameOver.png", 
 	position = game.at(0,0)
 )
-
 
 object nivel {
 	
@@ -47,27 +45,15 @@ object nivel {
 		//Base
 		self.configurarBase()
 		
-		// Generador de objetos
+		//Generador de objetos
 		game.onTick(2000, "generarEnemigo", { => generadorDeObjetosMoviles.generarEnemigo()})
 		game.onTick(10000, "generaritemVida", { => generadorDeObjetosMoviles.generarItemVida()})
+		game.onTick(5000, "generarBonus", { => generadorDeObjetosMoviles.generarBonus()})
 	}
-	
 	
 	method configurarBase() {
-		//forEach(n => base[n]){}
-		//(1 .. 9).forEach ( n => base[n]) = new Cuadrado(position=n+1)
-		//10.times(generadorDeObjetosMoviles.generarBase())
-		base.generarBase()
-		base.generarBase()
-		base.generarBase()
-		base.generarBase()
-		base.generarBase()
-		base.generarBase()
-		base.generarBase()
-		base.generarBase()
-		base.generarBase()
+		(1..9).forEach{cant=>base.generarBase()}	
 	}
-	
 	
 	method configurarTeclas(){
 		keyboard.left().onPressDo({ jugador.moverPara(izquierda) })	
@@ -76,13 +62,8 @@ object nivel {
 	}
 		
 	method configurarColisiones() {		
-	    //game.whenCollideDo(jugador.arma(), {e => jugador.arma().impactar(e)})
-	    //jugador.armas().forEach({arma => game.whenCollideDo(arma, {e => arma.impactar(e)})})
-	    game.whenCollideDo(jugador, {e =>  jugador.colisionadoPor(e)})
-	   // game.whenCollideDo(base, {e =>  base.colisionadoPor(e)})
-	   
-	   
-     }	    
+	    game.whenCollideDo(jugador, {e =>  jugador.colisionadoPor(e)})  
+    }	    
 
 	method gameOver(){
 		game.clear()
@@ -90,6 +71,4 @@ object nivel {
         game.addVisual(gameOver)
         game.addVisual(textoScoreFinal)		
 	}
-	
 }
-	

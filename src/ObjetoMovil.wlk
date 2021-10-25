@@ -4,6 +4,7 @@ import score.*
 
 class ObjetoMovil {
 	const property velocidad = 1
+	
 	var property position = game.at(3, 15)
 	var property desplazamiento = arriba
 	var timerName = "TimerName" 

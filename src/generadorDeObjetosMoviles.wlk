@@ -2,6 +2,7 @@ import wollok.game.*
 import direcciones.*
 import enemigo.*
 import itemVida.*
+import bonus.*
 
 
 object generadorDeObjetosMoviles {
@@ -26,6 +27,17 @@ object generadorDeObjetosMoviles {
 		
 		self.incrementarCantidadGenerada()
 	}
+	
+	
+	method generarBonus() {
+		const posicionX = random.getRandom(game.width())
+		
+		const bonus = new Bonus(position = game.at(posicionX, posicionY), desplazamiento = abajo)
+		bonus.addObjetoMovil("desplazar", cantidadGenerada)
+		
+		self.incrementarCantidadGenerada()
+	}
+	
 	
 	method incrementarCantidadGenerada() {
 		cantidadGenerada++
