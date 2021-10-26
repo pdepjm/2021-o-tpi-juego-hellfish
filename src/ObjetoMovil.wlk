@@ -7,7 +7,7 @@ class ObjetoMovil {
 	
 	var property position = game.at(3, 15)
 	var property desplazamiento = arriba
-	var timerName = "TimerName" 
+	var property timerName = "TimerName" 
 	
     method impactadoPorArma(arma) {	
     	game.removeVisual(self)

@@ -47,8 +47,8 @@ object nivel {
 		
 		//Generador de objetos
 		game.onTick(2000, "generarEnemigo", { => generadorDeObjetosMoviles.generarEnemigo()})
-		game.onTick(10000, "generaritemVida", { => generadorDeObjetosMoviles.generarItemVida()})
-		game.onTick(5000, "generarBonus", { => generadorDeObjetosMoviles.generarBonus()})
+		game.onTick(15000, "generaritemVida", { => generadorDeObjetosMoviles.generarItemVida()})
+		game.onTick(10000, "generarBonus", { => generadorDeObjetosMoviles.generarBonus()})
 	}
 	
 	method configurarBase() {

@@ -10,11 +10,11 @@ import score.*
 import ObjetoMovil.*
 import generadorDeObjetosMoviles.*
 
-/*
+
 describe "Test Jugador" {	
 test "Jugador se mueve"{
 	jugador.moverPara(derecha)
-	assert.equals(game.at(1,0), jugador.position())
+	assert.equals(game.at(1,1), jugador.position())
 }
 
 test "Cuando un jugador dispara mira asi arriba"{
@@ -24,17 +24,20 @@ test "Cuando un jugador dispara mira asi arriba"{
 	
 test "Cuando un jugador es colicionado por un objeto pierde uno de vida"{
 	const enemigo = new Enemigo()
-	enemigo.addObjetoMovil(0)
+	vida.modificar(1)
+	const vidasViejas = vida.cantidad()
+	enemigo.addObjetoMovil("desplazar", 0)
 	jugador.colisionadoPor(enemigo)
-	assert.equals(2, jugador.obtenerVidas().cantidad())
+	assert.equals(vidasViejas-1, jugador.obtenerVidas().cantidad())
 }
 }
 
 
 describe "Test Vida" {	
-test "Se modifica la cantidad de Vida"{	
+test "Se modifica la cantidad de Vida"{
+	const vidasViejas = vida.cantidad()	
 	vida.modificar(1)
-	assert.equals(4,vida.cantidad())
+	assert.equals(vidasViejas+1,vida.cantidad())
 }
 
 test "Cuando la vida es 0 se termina el juego"{	
@@ -48,14 +51,14 @@ describe "Test Enemigo"{
 const enemigo = new Enemigo()
 
 test "Un enemigo hace danio al impactar un jugador"{
-	enemigo.addObjetoMovil(0)
+	enemigo.addObjetoMovil("desplazar", 0)
 	const vidaComienzo = vida.cantidad()
 	jugador.colisionadoPor(enemigo)
 	assert.equals(vidaComienzo-1,vida.cantidad())
 }
 
 test "Un enemigo que es impactado debe desaparecer"{
-	enemigo.addObjetoMovil(0)
+	enemigo.addObjetoMovil("desplazar", 0)
 	enemigo.efecto()
 	assert.notThat(game.hasVisual(enemigo))
 }
@@ -70,12 +73,16 @@ describe "Test ItemVida"{
 const vidaExtra = new ItemVida()
 	
 test "El efecto del ItemVida aumenta la salud de un jugador" {
-	vidaExtra.addObjetoMovil(0)
+	const vidasViejas = vida.cantidad()
+	vidaExtra.addObjetoMovil("desplazar", 0)
 	vidaExtra.efecto()
-	assert.equals(4,vida.cantidad())
+	assert.equals(vidasViejas+1,vida.cantidad())
 }
 test "La destruccion del itemVida resta 100 puntos al score" {
-	vidaExtra.addObjetoMovil(0)
+	const lanza = new Lanza()
+	lanza.addObjetoMovil("Lanza", 0)
+	
+	vidaExtra.addObjetoMovil("desplazar", 0)
 	lanza.impactar(vidaExtra)
 	assert.equals(puntos.puntos(),-100)
 }
@@ -97,8 +104,11 @@ describe "Test ObjetoMovil" {
 	}
 	
 	test "Un objeto movil al ser impactado desaparece" {
+		const lanza = new Lanza()
+		lanza.addObjetoMovil("Lanza", 0)
+		
 		objeto = new ObjetoMovil(desplazamiento = arriba)
-		objeto.addObjetoMovil(0)
+		objeto.addObjetoMovil("desplazar", 0)
 		objeto.impactadoPorArma(lanza)
 		
 		assert.notThat(game.hasVisual(objeto))
@@ -107,39 +117,34 @@ describe "Test ObjetoMovil" {
 
 
 describe "Test Lanza"{
+const lanza = new Lanza()
 
 test "Al disparar el arma se posiciciona debajo del jugador"{
+	lanza.addObjetoMovil("Lanza", 0)
 	lanza.disparar(jugador)
-	assert.equals(lanza.position(), jugador.position().down(2))
+	assert.equals(lanza.position(), jugador.position())
 }
 
-test "El arma se desplaza si esta en movimiento"{
-	lanza.disparar(jugador)
-	const posicionActual = lanza.position().up(1)
-	lanza.desplazar() 
-	
-	assert.equals(posicionActual, lanza.position())
-}
-
-test "El arma no se desplaza si no esta en movimiento"{	
-	const posicionActual = lanza.position()
-	lanza.desplazar() 
-	assert.equals(posicionActual, lanza.position())
-}	
+//test "El arma no se desplaza si no esta en movimiento"{	
+	//const posicionActual = lanza.position()
+	//lanza.desplazar() 
+	//assert.equals(posicionActual, lanza.position())
+//}	
 
 test "Si el arma impacta un objeto lo elimina" {
+	lanza.addObjetoMovil("Lanza", 0)
 	const enemigo = new Enemigo()
-	enemigo.addObjetoMovil(0)
+	enemigo.addObjetoMovil("Desplazar", 0)
 	
 	lanza.impactar(enemigo)
 	assert.notThat(game.hasVisual(enemigo))
 }
 
 test "Si el arma impacta al personaje no lo elimina" {
+	lanza.addObjetoMovil("Lanza", 0)
 	game.addVisual(jugador)
 	lanza.impactar(jugador)
 	assert.that(game.hasVisual(jugador))
 } 
 }
 
-*/

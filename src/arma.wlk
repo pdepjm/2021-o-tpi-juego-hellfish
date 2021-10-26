@@ -32,10 +32,12 @@ class Lanza inherits ObjetoMovil {
     
     method destruir() {
     	game.removeVisual(self)
-    	game.removeTickEvent(timerName)
+    	game.removeTickEvent(self.timerName())
     }
     
-    method efecto() {}    
+    method efecto() {}
+    
+    override method impactadoPorArma(arma) {}    
 }
 
 
