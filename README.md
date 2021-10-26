@@ -17,6 +17,4 @@
 
 Matar las bolas que van cayendo del cielo con una lanza(hasta 3 disparos simultaneos) por cada bola que matas te da 100 puntos, si te pegan las bolas perdes una vida y 100 puntos. Tambien caen corazones, que si te pegan ganas una vida y estrellas bonus que si las agarras te dan 500 puntos. Si las bolas , los corazones o las estrellas pegan en la base perdes 100 puntos.
 
-## Respuestas teóricas
-
-(link al archivo o bien responder acá)
+## [Respuestas teóricas](https://docs.google.com/document/d/1G0yY-eWZN9PAALHqgxHDM-xFRw1Nx3h-8F6v64COKDw/edit?usp=sharing)
