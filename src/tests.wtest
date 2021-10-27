@@ -161,4 +161,3 @@ test "Si el arma impacta al personaje no lo elimina" {
 	assert.that(game.hasVisual(jugador))
 } 
 }
-
