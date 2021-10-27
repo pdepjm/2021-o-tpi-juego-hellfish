@@ -9,6 +9,7 @@ import itemVida.*
 import score.*
 import ObjetoMovil.*
 import generadorDeObjetosMoviles.*
+import Bonus.*
 
 
 describe "Test Jugador" {	
@@ -160,4 +161,26 @@ test "Si el arma impacta al personaje no lo elimina" {
 	lanza.impactar(jugador)
 	assert.that(game.hasVisual(jugador))
 } 
+}
+
+describe "Test bonus"{
+	
+const bonus = new Bonus()
+	
+test "Un Bonus que es impactado debe desaparecer"{
+	bonus.addObjetoMovil("desplazar", 0)
+	bonus.efecto()
+	assert.notThat(game.hasVisual(bonus))
+}
+
+test "La destruccion de un bonus resta 100 puntos al score"{
+	assert.equals(-100,bonus.puntosObtenidos())
+}
+
+test "Que el personaje toque un bonus suma 500 puntos al score"{
+	bonus.addObjetoMovil("desplazar", 0)
+	jugador.colisionadoPor(bonus)
+	assert.equals(puntos.puntos(),500)
+	
+	}
 }
