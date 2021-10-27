@@ -1,6 +1,7 @@
 import wollok.game.*
 import nivel.*
 
+
 program juego {
 	game.title("Pang")
 	nivel.configuracionInicial()

@@ -1,17 +1,16 @@
 import wollok.game.*
 import jugador.*
-import Objeto.*
+import ObjetoMovil.*
 
-class ItemVida inherits Objeto {
+class ItemVida inherits ObjetoMovil {
+	const incrementoVida = 1
 	
-	method image() {
-		return "vida.png"
-	} 
-	    
-     override method danio() {
-     	jugador.incrementarVida()
+	override method puntosObtenidos() = -100
+	
+	method image() = "vida.png" 
+	
+    method efecto() {
+    	jugador.modificarVida(incrementoVida)
      	game.removeVisual(self)
-     	
-    	return 0
      }  
 }
