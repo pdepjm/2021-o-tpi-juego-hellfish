@@ -45,7 +45,7 @@ test "Cuando la vida es 0 se termina el juego"{
 	assert.notThat(game.hasVisual(jugador))
 }
 
-test "Cuando se quiere agregar mas de 6 vidas"{
+test "Se pueden tener como maximo 6 vidas"{
 	7.times({_=>vida.modificar(+1)})
 	assert.equals(6, jugador.obtenerVidas().cantidad())
 }
