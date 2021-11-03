@@ -15,6 +15,6 @@
 
 ## Reglas de Juego / Instrucciones
 
-Matar las bolas que van cayendo del cielo con una lanza(hasta 3 disparos simultaneos) por cada bola que matas te da 100 puntos, si te pegan las bolas perdes una vida y 100 puntos. Tambien caen corazones, que si te pegan ganas una vida y estrellas bonus que si las agarras te dan 500 puntos. Si las bolas , los corazones o las estrellas pegan en la base perdes 100 puntos.
+El objetivo del juego es pegarle a las bolas que van cayendo del cielo con una lanza ( el jugador puede realizar hasta 3 disparos simultaneos ) por cada bola que uno destruye se ganan 100 puntos, si una bola choca contra el jugador, el jugador pierde una vida y 100 puntos. Ademas de bolas del cielo caen corazones y estrellas bonus, Si el jugador le pega a un corazon gana una vida y si le pega a una estrellas bonus se le entragan 500 puntos adicionales. Si las bolas , los corazones o las estrellas pegan en la base , el jugador perdera los 100 puntos.
 
 ## [Respuestas teóricas](https://docs.google.com/document/d/1G0yY-eWZN9PAALHqgxHDM-xFRw1Nx3h-8F6v64COKDw/edit?usp=sharing)
