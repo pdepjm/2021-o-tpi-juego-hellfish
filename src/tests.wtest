@@ -1,11 +1,163 @@
-import soundProducer.*
+//import soundProducer.*
+import wollok.game.*
+import direcciones.*
+import vida.*
+import jugador.*
+import arma.*
+import enemigo.*
+import itemVida.*
+import score.*
+import ObjetoMovil.*
+import generadorDeObjetosMoviles.*
 
-describe "Inserte descripción" {
-	method initialize() {
-		soundProducer.provider(soundProviderMock)		
+
+describe "Test Jugador" {	
+test "Jugador se mueve"{
+	jugador.moverPara(derecha)
+	assert.equals(game.at(1,1), jugador.position())
+}
+
+test "Cuando un jugador dispara mira asi arriba"{
+	jugador.disparar()
+	assert.equals(arriba, jugador.direccion())
+}
+	
+test "Cuando un jugador es colicionado por un objeto pierde uno de vida"{
+	const enemigo = new Enemigo()
+	vida.modificar(1)
+	const vidasViejas = vida.cantidad()
+	enemigo.addObjetoMovil("desplazar", 0)
+	jugador.colisionadoPor(enemigo)
+	assert.equals(vidasViejas-1, jugador.obtenerVidas().cantidad())
+}
+}
+
+
+describe "Test Vida" {	
+test "Se modifica la cantidad de Vida"{
+	const vidasViejas = vida.cantidad()	
+	vida.modificar(1)
+	assert.equals(vidasViejas+1,vida.cantidad())
+}
+
+test "Cuando la vida es 0 se termina el juego"{	
+	3.times({_=>vida.modificar(-1)})
+	assert.notThat(game.hasVisual(jugador))
+}
+
+test "Se pueden tener como maximo 6 vidas"{
+	7.times({_=>vida.modificar(+1)})
+	assert.equals(6, jugador.obtenerVidas().cantidad())
+}
+}
+
+
+describe "Test Enemigo"{ 	
+const enemigo = new Enemigo()
+
+test "Un enemigo hace danio al impactar un jugador"{
+	enemigo.addObjetoMovil("desplazar", 0)
+	const vidaComienzo = vida.cantidad()
+	jugador.colisionadoPor(enemigo)
+	assert.equals(vidaComienzo-1,vida.cantidad())
+}
+
+test "Un enemigo que es impactado debe desaparecer"{
+	enemigo.addObjetoMovil("desplazar", 0)
+	enemigo.efecto()
+	assert.notThat(game.hasVisual(enemigo))
+}
+
+test "La destruccion de un enemigo da 100 puntos al score"{
+	assert.equals(100,enemigo.puntosObtenidos())
+}
+}
+
+
+describe "Test ItemVida"{ 
+const vidaExtra = new ItemVida()
+	
+test "El efecto del ItemVida aumenta la salud de un jugador" {
+	const vidasViejas = vida.cantidad()
+	vidaExtra.addObjetoMovil("desplazar", 0)
+	vidaExtra.efecto()
+	assert.equals(vidasViejas+1,vida.cantidad())
+}
+test "La destruccion del itemVida resta 100 puntos al score" {
+	const lanza = new Lanza()
+	lanza.addObjetoMovil("Lanza", 0)
+	
+	vidaExtra.addObjetoMovil("desplazar", 0)
+	lanza.impactar(vidaExtra)
+	assert.equals(puntos.puntos(),-100)
+}
+}
+
+
+describe "Test ObjetoMovil" {
+	var objeto
+	
+	test "Un objeto movil no genera danio" {
+		objeto = new ObjetoMovil(desplazamiento = arriba)
+		
+		assert.equals(0,objeto.danio())
 	}
 	
-	test "testX" {
-		assert.that(true)
-	}	
+	test "No se obtiene punto por la destruccion de un objeto movil" {
+		objeto = new ObjetoMovil(desplazamiento = arriba)
+		assert.equals(0,objeto.puntosObtenidos())
+	}
+	
+	test "Un objeto movil al ser impactado desaparece" {
+		const lanza = new Lanza()
+		lanza.addObjetoMovil("Lanza", 0)
+		
+		objeto = new ObjetoMovil(desplazamiento = arriba)
+		objeto.addObjetoMovil("desplazar", 0)
+		objeto.impactadoPorArma(lanza)
+		
+		assert.notThat(game.hasVisual(objeto))
+	}
+	
+	test "Un objeto movil al tocar el piso desaparece"{
+		objeto = new ObjetoMovil(desplazamiento = arriba)
+		objeto.addObjetoMovil("desplazar", 0)
+		objeto.impactadoPorBase()
+		
+		assert.notThat(game.hasVisual(objeto))
+		
+		}
+}
+
+
+describe "Test Lanza"{
+const lanza = new Lanza()
+
+test "Al disparar el arma se posiciciona debajo del jugador"{
+	lanza.addObjetoMovil("Lanza", 0)
+	lanza.disparar(jugador)
+	assert.equals(lanza.position(), jugador.position())
+}
+
+//test "El arma no se desplaza si no esta en movimiento"{	
+	//const posicionActual = lanza.position()
+	//lanza.desplazar() 
+	//assert.equals(posicionActual, lanza.position())
+//}	
+
+test "Si el arma impacta un objeto lo elimina" {
+	lanza.addObjetoMovil("Lanza", 0)
+	const enemigo = new Enemigo()
+	enemigo.addObjetoMovil("Desplazar", 0)
+	
+	lanza.impactar(enemigo)
+	assert.notThat(game.hasVisual(enemigo))
+}
+
+test "Si el arma impacta al personaje no lo elimina" {
+	lanza.addObjetoMovil("Lanza", 0)
+	game.addVisual(jugador)
+	lanza.impactar(jugador)
+	assert.that(game.hasVisual(jugador))
+} 
 }

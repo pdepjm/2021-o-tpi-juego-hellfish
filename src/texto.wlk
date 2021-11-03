@@ -1,24 +1,37 @@
 import wollok.game.*
+import vida.*
+import score.*
 
-// ¡Los visuales también pueden ser texto!
-// Hay que definir la posición en la que debe aparecer
-// Y el texto que se debe mostrar. Para eso debe implementar el método text()
-// el cual debe devolver un string
-// Por defecto el color es azul, pero se puede modificar
-// Para ello debe entender el mensaje textColor()
-// El método debe devolver un string que represente el color
-// Debe ser en un formato particular: tiene que ser un valor RGBA en hexa "rrggbbaa"
-// Les dejamos algunos ejemplos
-// ¡También se puede combinar con las imágenes!
+object textoVida {	
+	method position() = game.at(6, 11)
+	
+	method text() = "Vida:" + vida.cantidad().toString()
+	
+	method textColor() = paleta.rojo()
+	
+	method impactadoPorArma(arma) {}
+}
 
-object texto {
+object textoScore {
 	
-	method position() = game.at(2, 4)
+	method position() = game.at(1, 11)
 	
-	method text() = "¡Pepita!"
+	method text() = "Score:" + puntos.puntos().toString()
 	
 	method textColor() = paleta.verde()
 	
+	method impactadoPorArma(arma) {}
+}
+
+object textoScoreFinal {
+	
+	method position() = game.at(4, 5)
+	
+	method text() = "Terminaste con " + puntos.puntos().toString() + " puntos de score"
+	
+	method textColor() = paleta.verde()
+	
+	method impactadoPorArma(arma) {}
 }
 
 object paleta {
